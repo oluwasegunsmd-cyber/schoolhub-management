@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - SchoolHub</title>
+    <link rel="stylesheet" href="CSS/attendance.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <script src="JS/theme.js"></script>
+</head>
+<body>
+     <div class="dashboard-container">
+        <!-- MOBILE HEADER -->
+        <div class="mobile-header">
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <h2 class="mobile-logo">School<span>Hub</span></h2>
+        </div>
+
+<!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+ 
+        <aside class="sidebar2">
+            <div class="sidebar-header">
+                <h2>School<span>Hub</span></h2>
+                <p>School Management System</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="nav-link">
+                    <span class="nav-icon">👨‍🎓</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="teachers.html" class="nav-link">
+                    <span class="nav-icon">👨‍🏫</span>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="classes.html" class="nav-link">
+                    <span class="nav-icon">🏫</span>
+                    <span>Classes</span>
+                </a>
+
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">💳</span>
+                    <span>Payments</span>
+                </a>
+
+                <a href="settings.html" class="nav-link active">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- SIDEBAR -->
+<aside class="sidebar">
+    
+
+    <div class="sidebar-header">
+        <h2>School<span>Hub</span></h2>
+        <p>School Management System</p>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html" class="nav-link">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="students.html" class="nav-link">
+            <span class="nav-icon">👨‍🎓</span>
+            <span>Students</span>
+        </a>
+
+        <a href="teachers.html" class="nav-link">
+            <span class="nav-icon">👨‍🏫</span>
+            <span>Teachers</span>
+        </a>
+
+        <a href="classes.html" class="nav-link">
+            <span class="nav-icon">🏫</span>
+            <span>Classes</span>
+        </a>
+
+        <a href="attendance.html" class="nav-link active">
+            <span class="nav-icon">📋</span>
+            <span>Attendance</span>
+        </a>
+
+        <a href="payments.html" class="nav-link">
+            <span class="nav-icon">💳</span>
+            <span>Payments</span>
+        </a>
+
+        <a href="settings.html" class="nav-link">
+            <span class="nav-icon">⚙️</span>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+        <a href="index.html" class="nav-link">
+            <span class="nav-icon">🚪</span>
+            <span>Logout</span>
+        </a>
+    </div>
+
+</aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+
+                <div>
+                    <h1>Attendance Management</h1>
+
+                    <p>
+                        Monitor student attendance and manage daily
+                        attendance records.
+                    </p>
+                </div>
+
+                <button type="button" class="btn btn-primary">
+                    + Mark Attendance
+                </button>
+
+            </header>
+
+            <!-- ATTENDANCE STATISTICS -->
+            <section class="stats-container">
+
+                <div class="stat-card">
+                    <div class="stat-icon total-icon">
+                        👨‍🎓
+                    </div>
+
+                    <div class="stat-info">
+                        <h3>Total Students</h3>
+                        <p class="stat-number">450</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon present-icon">
+                        ✅
+                    </div>
+
+                    <div class="stat-info">
+                        <h3>Present Today</h3>
+                        <p class="stat-number">420</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon absent-icon">
+                        ❌
+                    </div>
+
+                    <div class="stat-info">
+                        <h3>Absent Today</h3>
+                        <p class="stat-number">20</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon late-icon">
+                        ⏰
+                    </div>
+
+                    <div class="stat-info">
+                        <h3>Late Today</h3>
+                        <p class="stat-number">10</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- MARK ATTENDANCE FORM -->
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <h2>Mark Student Attendance</h2>
+
+                    <p>
+                        Select a class and record attendance for a student.
+                    </p>
+
+                </div>
+
+                <form id="attendanceForm">
+
+                    <div class="form-grid">
+
+                        <!-- STUDENT NAME -->
+                        <div class="form-group">
+
+                            <label for="studentName">
+                                Student Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentName"
+                                name="studentName"
+                                placeholder="Enter student's full name"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- CLASS -->
+                        <div class="form-group">
+
+                            <label for="studentClass">
+                                Class
+                            </label>
+
+                            <select
+                                id="studentClass"
+                                name="studentClass"
+                                required
+                            >
+
+                                <option value="">
+                                    Select class
+                                </option>
+
+                                <option value="Nursery 1">
+                                    JSS 1
+                                </option>
+
+                                <option value="Primary 5">
+                                    JSS 2
+                                </option>
+
+                                <option value="JSS 1A">
+                                    JSS 3
+                                </option>
+
+                                <option value="JSS 2A">
+                                    SSS 1
+                                </option>
+
+                                <option value="SSS 2">
+                                    SSS 2
+                                </option>
+                                <OPtion value="SSS 3">
+                                    SSS 3
+                                </OPtion>
+
+                            </select>
+
+                        </div>
+
+                        <!-- DATE -->
+                        <div class="form-group">
+
+                            <label for="attendanceDate">
+                                Attendance Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="attendanceDate"
+                                name="attendanceDate"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- STATUS -->
+                        <div class="form-group">
+
+                            <label for="attendanceStatus">
+                                Attendance Status
+                            </label>
+
+                            <select
+                                id="attendanceStatus"
+                                name="attendanceStatus"
+                                required
+                            >
+
+                                <option value="">
+                                    Select attendance status
+                                </option>
+
+                                <option value="Present">
+                                    Present
+                                </option>
+
+                                <option value="Absent">
+                                    Absent
+                                </option>
+
+                                <option value="Late">
+                                    Late
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- FORM BUTTONS -->
+                    <div class="form-actions">
+
+                        <button
+                            type="reset"
+                            class="btn btn-secondary"
+                        >
+                            Clear Form
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Save Attendance
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- ATTENDANCE RECORDS -->
+            <section class="table-section">
+
+                <div class="section-header">
+
+                    <h2>Attendance Records</h2>
+
+                    <p>
+                        View and manage recorded student attendance.
+                    </p>
+
+                </div>
+
+                <!-- SEARCH AND FILTERS -->
+                <div class="table-toolbar">
+
+                    <input
+                        type="search"
+                        id="attendanceSearch"
+                        placeholder="Search student..."
+                        aria-label="Search attendance records"
+                    >
+
+                    <select
+                        id="classFilter"
+                        aria-label="Filter by class"
+                    >
+
+                        <option value="">All Classes</option>
+                        <option value="Nursery 1">Nursery 1</option>
+                        <option value="Primary 5">Primary 5</option>
+                        <option value="JSS 1A">JSS 1A</option>
+                        <option value="JSS 2A">JSS 2A</option>
+                        <option value="SSS 1A">SSS 1A</option>
+                        <option value="SSS 3">SSS 3</option>
+
+                    </select>
+
+                    <select
+                        id="statusFilter"
+                        aria-label="Filter by attendance status"
+                    >
+
+                        <option value="">All Statuses</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                        <option value="Late">Late</option>
+
+                    </select>
+
+                </div>
+
+                <!-- ATTENDANCE TABLE -->
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="attendanceTableBody">
+                            </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="page-footer">
+
+                <p>
+                    &copy; 2026 SchoolMS. All rights reserved.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+    <script>
+    const mobileHeader = document.querySelector(".mobile-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar2");
+    const sidebarOverlay = document.querySelector(".sidebar-overlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
+
+    let lastScrollPosition = window.scrollY;
+
+    // Open the sidebar
+    function openSidebar() {
+        sidebar.classList.add("sidebar-open");
+        sidebarOverlay.classList.add("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        menuToggle.textContent = "✕";
+        document.body.classList.add("menu-open");
+    }
+
+    // Close the sidebar
+    function closeSidebar() {
+        sidebar.classList.remove("sidebar-open");
+        sidebarOverlay.classList.remove("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        document.body.classList.remove("menu-open");
+    }
+
+    // Toggle the menu when the button is clicked
+    menuToggle.addEventListener("click", () => {
+        if (sidebar.classList.contains("sidebar-open")) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    // Close the sidebar when the overlay is clicked
+    sidebarOverlay.addEventListener("click", closeSidebar);
+
+    // Close the sidebar after a navigation link is clicked
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", closeSidebar);
+    });
+
+    // Hide the header while scrolling down and show it while scrolling up
+    window.addEventListener("scroll", () => {
+        if (window.innerWidth > 1024) {
+            return;
+        }
+
+        const currentScrollPosition = window.scrollY;
+        const sidebarIsOpen = sidebar.classList.contains("sidebar-open");
+
+        if (sidebarIsOpen) {
+            lastScrollPosition = currentScrollPosition;
+            return;
+        }
+
+        if (currentScrollPosition <= 0) {
+            mobileHeader.classList.remove("header-hidden");
+        } else if (currentScrollPosition > lastScrollPosition) {
+            mobileHeader.classList.add("header-hidden");
+        } else if (currentScrollPosition < lastScrollPosition) {
+            mobileHeader.classList.remove("header-hidden");
+        }
+
+        lastScrollPosition = currentScrollPosition;
+    });
+
+    // Close the mobile sidebar when switching to desktop width
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+            closeSidebar();
+            mobileHeader.classList.remove("header-hidden");
+        }
+    });
+</script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="JS/attendance.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolHub-Registration</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: #f5f6ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .auth-container {
+        width: 100%;
+        max-width: 1000px;
+        min-height: 600px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: white;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Left Section */
+
+    .auth-info {
+        background: #5b4bdb;
+        color: white;
+        padding: 60px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .auth-info h1 {
+        font-size: 30px;
+        margin-bottom: 70px;
+    }
+
+    .auth-info h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .auth-info p {
+        line-height: 1.8;
+        color: #e7e4ff;
+        margin-bottom: 35px;
+    }
+
+    .back-home {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Form Section */
+
+    .auth-form-container {
+        padding: 50px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    form h2 {
+        font-size: 27px;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        color: #777;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #ddd;
+        border-radius: 7px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .form-group input:focus {
+        border-color: #5b4bdb;
+        box-shadow: 0 0 0 3px rgba(91, 75, 219, 0.1);
+    }
+
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        font-size: 12px;
+    }
+
+    .remember {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .form-options a {
+        color: #5b4bdb;
+        text-decoration: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 7px;
+        background: #5b4bdb;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #4635c4;
+    }
+
+    button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .message {
+        margin-top: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .switch-page {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .switch-page a {
+        color: #5b4bdb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Mobile Responsive */
+
+    @media (max-width: 700px) {
+        body {
+            padding: 15px;
+        }
+
+        .auth-container {
+            grid-template-columns: 1fr;
+        }
+
+        .auth-info {
+            padding: 30px;
+        }
+
+        .auth-info h1 {
+            margin-bottom: 25px;
+        }
+
+        .auth-info h2 {
+            font-size: 28px;
+        }
+
+        .auth-info p {
+            margin-bottom: 20px;
+        }
+
+        .auth-form-container {
+            padding: 35px 25px;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .form-options {
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<body>
+    <div class="auth-container">
+
+        <div class="auth-info">
+            <h1>SchoolHub</h1>
+
+            <h2>Create Your Account</h2>
+
+            <p>
+                Join SchoolHub to help manage school activities,
+                student records, and academic information.
+            </p>
+
+            <a href="index.html" class="back-home">
+                &larr; Back to Home
+            </a>
+        </div>
+
+        <div class="auth-form-container">
+
+            <form id="registerForm">
+
+                <h2>Get Started</h2>
+
+                <p class="subtitle">
+                    Enter your details to create an account.
+                </p>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input type="password" id="password" placeholder="At least 6 characters" minlength="6" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input type="password" id="confirmPassword" placeholder="Enter your password again" minlength="6"
+                        required>
+                </div>
+
+                <button type="submit" id="registerBtn">
+                    Create Account
+                </button>
+
+                <p id="message" class="message"></p>
+
+                <p class="switch-page">
+                    Already have an account?
+                    <a href="login.html">Login here</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+    <!-- <script type="module" src="JS/auth.js"></script> -->
+    <script type="module">
+
+
+        // import { auth } from "./firebase";
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-analytics.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+        
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBPoQRjROGiPXCqByMhrACS5TIyn0rHVe8",
+            authDomain: "schoolhub-management.firebaseapp.com",
+            projectId: "schoolhub-management",
+            storageBucket: "schoolhub-management.firebasestorage.app",
+            messagingSenderId: "423341982010",
+            appId: "1:423341982010:web:577d03bf8d682b3b4a5003"
+        };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+
+        import {
+            createUserWithEmailAndPassword,
+            updateProfile
+        } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+        const registerForm = document.getElementById("registerForm");
+
+        if (registerForm) {
+            registerForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const fullName = document.getElementById("fullName").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                const message = document.getElementById("message");
+                const registerBtn = document.getElementById("registerBtn");
+
+                if (password !== confirmPassword) {
+                    await Swal.fire({
+                        icon: "error",
+                        title: "Passwords do not match",
+                        text: "Please make sure both password fields are the same."
+                    });
+                    return;
+                }
+
+                try {
+                    registerBtn.disabled = true;
+                    registerBtn.textContent = "Creating Account...";
+
+                    const userCredential = await createUserWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                    );
+
+                    await updateProfile(userCredential.user, {
+                        displayName: fullName
+                    });
+
+                    registerForm.reset();
+                    await Swal.fire({
+                        icon: "success",
+                        title: "Account created",
+                        text: "Your account was created successfully."
+                    });
+
+                } catch (error) {
+                    console.error("Registration error:", error.code, error.message);
+                    await Swal.fire({
+                        icon: "error",
+                        title: "Registration failed",
+                        text: error.message || "Please try again."
+                    });
+                    // } catch (error) {
+                    //     console.error(error);
+
+                    //     const errors = {
+                    //         "auth/email-already-in-use": "This email is already registered.",
+                    //         "auth/invalid-email": "Please enter a valid email address.",
+                    //         "auth/weak-password": "Your password is too weak.",
+                    //         "auth/network-request-failed": "Network error. Check your internet connection."
+                    //     };
+
+                    //     message.textContent =
+                    //         errors[error.code] || "Registration failed. Please try again.";
+
+                    //     message.style.color = "red";
+
+                } finally {
+                    registerBtn.disabled = false;
+                    registerBtn.textContent = "Create Account";
+                }
+            });
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

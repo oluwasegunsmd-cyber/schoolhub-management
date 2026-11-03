@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers - SchoolHub</title>
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/teacher.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <script src="JS/theme.js"></script>
+</head>
+    
+<body>
+    <div class="dashboard-container">
+        <!-- MOBILE HEADER -->
+        <div class="mobile-header">
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <h2 class="mobile-logo">School<span>Hub</span></h2>
+        </div>
+
+<!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+ 
+        <aside class="sidebar2">
+            <div class="sidebar-header">
+                <h2>School<span>Hub</span></h2>
+                <p>School Management System</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="nav-link">
+                    <span class="nav-icon">👨‍🎓</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="teachers.html" class="nav-link">
+                    <span class="nav-icon">👨‍🏫</span>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="classes.html" class="nav-link">
+                    <span class="nav-icon">🏫</span>
+                    <span>Classes</span>
+                </a>
+
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">💳</span>
+                    <span>Payments</span>
+                </a>
+
+                <a href="settings.html" class="nav-link active">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>School<span>Hub</span></h2>
+                <p>School Management System</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-link">
+                    <span>📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="nav-link">
+                    <span>👨‍🎓</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="teachers.html" class="nav-link active">
+                    <span>👨‍🏫</span>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="classes.html" class="nav-link">
+                    <span>🏫</span>
+                    <span>Classes</span>
+                </a>
+
+                <a href="attendance.html" class="nav-link">
+                    <span>📋</span>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html" class="nav-link">
+                    <span>💳</span>
+                    <span>Payments</span>
+                </a>
+
+                <a href="settings.html" class="nav-link">
+                    <span>⚙️</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+
+                <div>
+                    <h1>Teachers Management</h1>
+                    <p>Manage your school's teaching staff.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="showTeacherForm"
+                >
+                    + Add Teacher
+                </button>
+
+            </header>
+
+
+            <!-- TEACHER STATISTICS -->
+            <section class="teacher-stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon teacher-icon">👨‍🏫</div>
+
+                    <div class="stat-info">
+                        <p>Total Teachers</p>
+                        <h2 id="totalTeachers">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon male-icon">👨</div>
+
+                    <div class="stat-info">
+                        <p>Male Teachers</p>
+                        <h2 id="maleTeachers">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon female-icon">👩</div>
+
+                    <div class="stat-info">
+                        <p>Female Teachers</p>
+                        <h2 id="femaleTeachers">0</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ADD TEACHER FORM -->
+            <section class="teacher-form-section" id="teacherFormSection">
+
+                <div class="section-header">
+                    <div>
+                        <h2 id="teacherFormTitle">Add New Teacher</h2>
+                        <p>Enter the teacher's information below.</p>
+                    </div>
+                </div>
+
+                <form id="teacherForm">
+
+                    <input type="hidden" id="teacherDocumentId">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="teacherName">Full Name</label>
+
+                            <input
+                                type="text"
+                                id="teacherName"
+                                name="teacherName"
+                                placeholder="Enter full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teacherEmail">Email Address</label>
+
+                            <input
+                                type="email"
+                                id="teacherEmail"
+                                name="teacherEmail"
+                                placeholder="Enter email address"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teacherPhone">Phone Number</label>
+
+                            <input
+                                type="tel"
+                                id="teacherPhone"
+                                name="teacherPhone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teacherGender">Gender</label>
+
+                            <select id="teacherGender" name="teacherGender" required>
+                                <option value="">Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teacherSubject">Subject</label>
+
+                            <input
+                                type="text"
+                                id="teacherSubject"
+                                name="teacherSubject"
+                                placeholder="e.g. Mathematics"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teacherQualification">Qualification</label>
+
+                            <input
+                                type="text"
+                                id="teacherQualification"
+                                name="teacherQualification"
+                                placeholder="e.g. B.Ed, B.Sc"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teacherDateEmployed">Date Employed</label>
+
+                            <input
+                                type="date"
+                                id="teacherDateEmployed"
+                                name="teacherDateEmployed"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button
+                            type="reset"
+                            class="btn btn-secondary"
+                            id="clearTeacherForm"
+                        >
+                            Clear Form
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="saveTeacherBtn"
+                        >
+                            Save Teacher
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- TEACHERS LIST -->
+            <section class="teachers-list-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>All Teachers</h2>
+                        <p>View and manage registered teachers.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- SEARCH -->
+                <div class="teacher-toolbar">
+
+                    <input
+                        type="search"
+                        id="teacherSearch"
+                        placeholder="Search by name, email, or subject..."
+                        aria-label="Search teachers"
+                    >
+
+                </div>
+
+
+                <!-- TEACHERS TABLE -->
+                <div class="table-container">
+
+                    <table class="teachers-table">
+
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Phone Number</th>
+                                <th>Gender</th>
+                                <th>Subject</th>
+                                <th>Qualification</th>
+                                <th>Date Employed</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="teachersTableBody">
+
+                            <!-- Sample teacher records -->
+
+                            <tr>
+                                <td>
+                                    <div class="teacher-profile">
+                                        <div class="teacher-avatar"></div>
+                                        <span></span>
+                                    </div>
+                                </td>
+
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td>
+                                    <div class="action-buttons">
+                                        <button
+                                            type="button"
+                                            class="action-btn edit-btn"
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            class="action-btn delete-btn"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- <tr>
+                                <td>
+                                    <div class="teacher-profile">
+                                        <div class="teacher-avatar">MA</div>
+                                        <span>Mary Adams</span>
+                                    </div>
+                                </td>
+
+                                <td>mary@example.com</td>
+                                <td>08023456789</td>
+                                <td>Female</td>
+                                <td>English Language</td>
+
+                                <td>
+                                    <div class="action-buttons">
+                                        <button
+                                            type="button"
+                                            class="action-btn edit-btn"
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            class="action-btn delete-btn"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="teacher-profile">
+                                        <div class="teacher-avatar">PS</div>
+                                        <span>Peter Smith</span>
+                                    </div>
+                                </td>
+
+                                <td>peter@example.com</td>
+                                <td>08034567890</td>
+                                <td>Male</td>
+                                <td>Physics</td>
+
+                                <td>
+                                    <div class="action-buttons">
+                                        <button
+                                            type="button"
+                                            class="action-btn edit-btn"
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            class="action-btn delete-btn"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- TABLE FOOTER -->
+                <div class="table-footer">
+                    <p>...Showing active teachers</p>
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="page-footer">
+                <p>&copy; 2026 SchoolHub. All rights reserved.</p>
+            </footer>
+
+        </main>
+
+    </div>
+    <script>
+    const mobileHeader = document.querySelector(".mobile-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar2");
+    const sidebarOverlay = document.querySelector(".sidebar-overlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
+
+    let lastScrollPosition = window.scrollY;
+
+    // Open the sidebar
+    function openSidebar() {
+        sidebar.classList.add("sidebar-open");
+        sidebarOverlay.classList.add("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        menuToggle.textContent = "✕";
+        document.body.classList.add("menu-open");
+    }
+
+    // Close the sidebar
+    function closeSidebar() {
+        sidebar.classList.remove("sidebar-open");
+        sidebarOverlay.classList.remove("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        document.body.classList.remove("menu-open");
+    }
+
+    // Toggle the menu when the button is clicked
+    menuToggle.addEventListener("click", () => {
+        if (sidebar.classList.contains("sidebar-open")) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    // Close the sidebar when the overlay is clicked
+    sidebarOverlay.addEventListener("click", closeSidebar);
+
+    // Close the sidebar after a navigation link is clicked
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", closeSidebar);
+    });
+
+    // Hide the header while scrolling down and show it while scrolling up
+    window.addEventListener("scroll", () => {
+        if (window.innerWidth > 1024) {
+            return;
+        }
+
+        const currentScrollPosition = window.scrollY;
+        const sidebarIsOpen = sidebar.classList.contains("sidebar-open");
+
+        if (sidebarIsOpen) {
+            lastScrollPosition = currentScrollPosition;
+            return;
+        }
+
+        if (currentScrollPosition <= 0) {
+            mobileHeader.classList.remove("header-hidden");
+        } else if (currentScrollPosition > lastScrollPosition) {
+            mobileHeader.classList.add("header-hidden");
+        } else if (currentScrollPosition < lastScrollPosition) {
+            mobileHeader.classList.remove("header-hidden");
+        }
+
+        lastScrollPosition = currentScrollPosition;
+    });
+
+    // Close the mobile sidebar when switching to desktop width
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+            closeSidebar();
+            mobileHeader.classList.remove("header-hidden");
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="JS/teachers.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - SchoolHub</title>
+    <link rel="stylesheet" href="CSS/payment.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <script src="JS/theme.js"></script>
+</head>
+<body>
+    
+    <div class="dashboard-container">
+        <!-- MOBILE HEADER -->
+        <div class="mobile-header">
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <h2 class="mobile-logo">School<span>Hub</span></h2>
+        </div>
+
+<!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+ 
+        <aside class="sidebar2">
+            <div class="sidebar-header">
+                <h2>School<span>Hub</span></h2>
+                <p>School Management System</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="nav-link">
+                    <span class="nav-icon">👨‍🎓</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="teachers.html" class="nav-link">
+                    <span class="nav-icon">👨‍🏫</span>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="classes.html" class="nav-link">
+                    <span class="nav-icon">🏫</span>
+                    <span>Classes</span>
+                </a>
+
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html" class="nav-link active">
+                    <span class="nav-icon">💳</span>
+                    <span>Payments</span>
+                </a>
+
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>School<span>MS</span></h2>
+                <p>Management System</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-link">
+                    <span>📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="nav-link">
+                    <span>👨‍🎓</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="teachers.html" class="nav-link">
+                    <span>👨‍🏫</span>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="classes.html" class="nav-link">
+                    <span>🏫</span>
+                    <span>Classes</span>
+                </a>
+
+                <a href="attendance.html" class="nav-link">
+                    <span>📋</span>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html" class="nav-link active">
+                    <span>💳</span>
+                    <span>Payments</span>
+                </a>
+
+                <a href="settings.html" class="nav-link">
+                    <span>⚙️</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Page Header -->
+            <header class="page-header">
+
+                <div class="header-text">
+                    <h1>Payments Management</h1>
+                    <p>Manage student fees and payment records.</p>
+                </div>
+
+                <div class="header-actions">
+                    <span class="admin-badge">Administrator</span>
+                </div>
+
+            </header>
+
+            <!-- Payment Statistics -->
+            <section class="payment-stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon collected-icon">💰</div>
+
+                    <div class="stat-info">
+                        <p>Total Fees Collected</p>
+                        <h2 id="feesCollected">₦0</h2>
+                        <span class="stat-description">From recorded payments</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon outstanding-icon">📉</div>
+
+                    <div class="stat-info">
+                        <p>Outstanding Payments</p>
+                        <h2 id="outstandingAmount">₦0</h2>
+                        <span class="stat-description">Pending amount recorded</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon payments-icon">🧾</div>
+
+                    <div class="stat-info">
+                        <p>Total Payments</p>
+                        <h2 id="totalPayments">0</h2>
+                        <span class="stat-description">Recorded payments</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon pending-icon">⏳</div>
+
+                    <div class="stat-info">
+                        <p>Pending Payments</p>
+                        <h2 id="pendingPayments">0</h2>
+                        <span class="stat-description">Pending records</span>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Record Payment Section -->
+            <section class="payment-form-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Record a Payment</h2>
+                        <p>Enter the details of a student's payment.</p>
+                    </div>
+                </div>
+
+                <form class="payment-form" id="paymentForm">
+
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+
+                        <select id="studentName" name="studentName" required><option value="">Loading registered students...</option></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+
+                        <input
+                            type="text"
+                            id="studentId"
+                            name="studentId"
+                            placeholder="Enter student ID" readonly
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentClass">Class</label>
+
+                        <input type="text" id="studentClass" name="studentClass" placeholder="Auto-filled from student record" readonly required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentType">Payment Type</label>
+
+                        <select id="paymentType" name="paymentType" required>
+                            <option value="">Select payment type</option>
+                            <option value="Tuition Fee">Tuition Fee</option>
+                            <option value="Examination Fee">Examination Fee</option>
+                            <option value="Uniform Fee">Uniform Fee</option>
+                            <option value="Books and Materials">Books and Materials</option>
+                            <option value="Other Fees">Other Fees</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amountPaid">Amount Paid (₦)</label>
+
+                        <input
+                            type="number"
+                            id="amountPaid"
+                            name="amountPaid"
+                            placeholder="Enter amount"
+                            min="1"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentDate">Payment Date</label>
+
+                        <input
+                            type="date"
+                            id="paymentDate"
+                            name="paymentDate"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Select payment method</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="POS">POS</option>
+                            <option value="Online Payment">Online Payment</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentStatus">Payment Status</label>
+
+                        <select id="paymentStatus" name="paymentStatus" required>
+                            <option value="">Select payment status</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Partial">Partial</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">
+                            Clear Form
+                        </button>
+
+                        <button type="submit" class="btn btn-primary">
+                            + Record Payment
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- Payment Records Section -->
+            <section class="payment-records-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Payment Records</h2>
+                        <p>View and manage student payment records.</p>
+                    </div>
+
+                    <button type="button" class="btn btn-outline" id="exportPaymentsButton">
+                        ⬇ Export Records
+                    </button>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="payment-toolbar">
+
+                    <div class="search-box">
+                        <input
+                            type="search"
+                            id="paymentSearch"
+                            placeholder="Search by student name or ID..."
+                            aria-label="Search payment records"
+                        >
+                    </div>
+
+                    <div class="filter-group">
+
+                        <select id="statusFilter" aria-label="Filter by payment status">
+                            <option value="">All Statuses</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Partial">Partial</option>
+                        </select>
+
+                        <select id="typeFilter" aria-label="Filter by payment type">
+                            <option value="">All Payment Types</option>
+                            <option value="Tuition Fee">Tuition Fee</option>
+                            <option value="Examination Fee">Examination Fee</option>
+                            <option value="Uniform Fee">Uniform Fee</option>
+                            <option value="Books and Materials">Books and Materials</option>
+                            <option value="Other Fees">Other Fees</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Payments Table -->
+                <div class="table-container">
+
+                    <table class="payment-table">
+
+                        <thead>
+                            <tr>
+                                <th>Payment ID</th>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th>Payment Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="paymentsTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- Table Footer -->
+                <div class="table-footer">
+
+                    <p id="paymentSummary">Loading payment records...</p>
+
+                    
+
+                </div>
+
+            </section>
+
+            <!-- Page Footer -->
+            <footer class="page-footer">
+                <p>&copy; 2026 School Management System. All rights reserved.</p>
+            </footer>
+
+        </main>
+
+    </div>
+    <script>
+    const mobileHeader = document.querySelector(".mobile-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar2");
+    const sidebarOverlay = document.querySelector(".sidebar-overlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
+
+    let lastScrollPosition = window.scrollY;
+
+    // Open the sidebar
+    function openSidebar() {
+        sidebar.classList.add("sidebar-open");
+        sidebarOverlay.classList.add("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        menuToggle.textContent = "✕";
+        document.body.classList.add("menu-open");
+    }
+
+    // Close the sidebar
+    function closeSidebar() {
+        sidebar.classList.remove("sidebar-open");
+        sidebarOverlay.classList.remove("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        document.body.classList.remove("menu-open");
+    }
+
+    // Toggle the menu when the button is clicked
+    menuToggle.addEventListener("click", () => {
+        if (sidebar.classList.contains("sidebar-open")) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    // Close the sidebar when the overlay is clicked
+    sidebarOverlay.addEventListener("click", closeSidebar);
+
+    // Close the sidebar after a navigation link is clicked
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", closeSidebar);
+    });
+
+    // Hide the header while scrolling down and show it while scrolling up
+    window.addEventListener("scroll", () => {
+        if (window.innerWidth > 1024) {
+            return;
+        }
+
+        const currentScrollPosition = window.scrollY;
+        const sidebarIsOpen = sidebar.classList.contains("sidebar-open");
+
+        if (sidebarIsOpen) {
+            lastScrollPosition = currentScrollPosition;
+            return;
+        }
+
+        if (currentScrollPosition <= 0) {
+            mobileHeader.classList.remove("header-hidden");
+        } else if (currentScrollPosition > lastScrollPosition) {
+            mobileHeader.classList.add("header-hidden");
+        } else if (currentScrollPosition < lastScrollPosition) {
+            mobileHeader.classList.remove("header-hidden");
+        }
+
+        lastScrollPosition = currentScrollPosition;
+    });
+
+    // Close the mobile sidebar when switching to desktop width
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+            closeSidebar();
+            mobileHeader.classList.remove("header-hidden");
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="JS/payments.js"></script>
+</body>
+</html>

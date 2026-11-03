@@ -1,0 +1,67 @@
+/* Shared application theme */
+html.dark-mode body {
+    background-color: #0f172a !important;
+    color: #e2e8f0 !important;
+}
+
+html.dark-mode .main-content {
+    background-color: #0f172a !important;
+    color: #e2e8f0;
+}
+
+html.dark-mode .stat-card,
+html.dark-mode .settings-card,
+html.dark-mode .form-section,
+html.dark-mode .table-section,
+html.dark-mode .dashboard-card,
+html.dark-mode .content-card,
+html.dark-mode .card,
+html.dark-mode .table-container {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #e2e8f0;
+}
+
+html.dark-mode main h1,
+html.dark-mode main h2,
+html.dark-mode main h3,
+html.dark-mode main h4,
+html.dark-mode main label,
+html.dark-mode main th {
+    color: #f1f5f9;
+}
+
+html.dark-mode main p,
+html.dark-mode main td,
+html.dark-mode main .section-header p,
+html.dark-mode main .stat-info h3 {
+    color: #cbd5e1;
+}
+
+html.dark-mode main input,
+html.dark-mode main select,
+html.dark-mode main textarea,
+html.dark-mode main table {
+    background-color: #0f172a;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+html.dark-mode main thead,
+html.dark-mode main th {
+    background-color: #1e293b;
+}
+
+html.dark-mode main td,
+html.dark-mode main th {
+    border-color: #334155;
+}
+
+html.dark-mode main tbody tr:hover {
+    background-color: #263449;
+}
+
+html.dark-mode main input::placeholder,
+html.dark-mode main textarea::placeholder {
+    color: #94a3b8;
+}

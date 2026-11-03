@@ -1,0 +1,2586 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<style>
+    /* =========================================
+   SCHOOLHUB LANDING PAGE
+========================================= */
+
+:root {
+    --primary: #5525dc;
+    --primary-dark: #4015b5;
+    --primary-light: #f0eaff;
+    --navy: #11132f;
+    --text: #252844;
+    --muted: #737b96;
+    --background: #ffffff;
+    --border: #e8e7f3;
+    --green: #16a66a;
+    --shadow: 0 15px 45px rgba(42, 31, 91, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--background);
+    color: var(--navy);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #a99aff;
+    outline-offset: 4px;
+}
+
+.container {
+    width: min(1320px, calc(100% - 64px));
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(232, 231, 243, 0.8);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #713df5, #491ac8);
+    color: white;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(85, 37, 220, 0.2);
+}
+
+.brand-name {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.brand-name span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    position: relative;
+    padding: 29px 0;
+    color: #555b78;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--primary);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn {
+    min-height: 44px;
+    padding: 12px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(135deg, #713df5, #4b1acb);
+    box-shadow: 0 6px 16px rgba(85, 37, 220, 0.15);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 9px 22px rgba(85, 37, 220, 0.24);
+}
+
+.btn-outline {
+    background: white;
+    color: var(--navy);
+    border-color: #d7d0f4;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-large {
+    min-height: 51px;
+    padding: 15px 24px;
+    font-size: 13px;
+}
+
+.arrow {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.mobile-actions,
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 85% 30%,
+            rgba(168, 133, 255, 0.15),
+            transparent 38%
+        ),
+        linear-gradient(135deg, #ffffff 15%, #faf8ff 100%);
+}
+
+.hero-background {
+    position: absolute;
+    top: -250px;
+    right: -150px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(
+        circle,
+        rgba(133, 92, 255, 0.1),
+        transparent 68%
+    );
+    pointer-events: none;
+}
+
+.hero-grid {
+    min-height: 575px;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 35px;
+    padding-top: 50px;
+    padding-bottom: 65px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 14px;
+    margin-bottom: 24px;
+    color: var(--primary);
+    background: #eee7ff;
+    border: 1px solid #e6dcff;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.eyebrow-icon {
+    font-size: 16px;
+}
+
+.hero h1 {
+    max-width: 650px;
+    color: var(--navy);
+    font-size: clamp(38px, 4.1vw, 61px);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.12;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 560px;
+    margin-top: 22px;
+    color: #626984;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 28px;
+}
+
+.hero-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 27px;
+    margin-top: 38px;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.benefit-icon {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    color: var(--primary);
+    background: #eee8ff;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.benefit strong,
+.benefit small {
+    display: block;
+}
+
+.benefit strong {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.benefit small {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================
+   DASHBOARD PREVIEW
+========================================= */
+
+.hero-visual {
+    position: relative;
+    min-width: 0;
+    padding: 25px 0;
+}
+
+.visual-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.decoration-one {
+    width: 380px;
+    height: 380px;
+    top: -40px;
+    right: -40px;
+    background: #e8ddff;
+    opacity: 0.75;
+}
+
+.decoration-two {
+    width: 220px;
+    height: 220px;
+    bottom: -15px;
+    left: -25px;
+    background: #f0eaff;
+}
+
+.dashboard-preview {
+    position: relative;
+    z-index: 2;
+    min-height: 370px;
+    display: grid;
+    grid-template-columns: 155px minmax(0, 1fr);
+    background: white;
+    border: 7px solid #24243a;
+    border-radius: 17px;
+    overflow: hidden;
+    box-shadow: 0 25px 65px rgba(34, 25, 74, 0.2);
+    transform: perspective(1200px) rotateY(-3deg);
+}
+
+.preview-sidebar {
+    padding: 20px 10px;
+    color: #ddd7f5;
+    background: #17172d;
+}
+
+.preview-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 5px;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+.preview-brand-icon {
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    color: white;
+    background: var(--primary);
+    border-radius: 7px;
+    font-weight: 800;
+}
+
+.preview-menu {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 8px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    color: #c0bfd7;
+    font-size: 10px;
+}
+
+.preview-menu span {
+    font-size: 14px;
+}
+
+.preview-menu.active {
+    color: white;
+    background: var(--primary);
+}
+
+.preview-main {
+    min-width: 0;
+    padding: 17px;
+    background: #fbfaff;
+}
+
+.preview-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eceaf4;
+}
+
+.preview-topbar strong,
+.preview-topbar small {
+    display: block;
+}
+
+.preview-topbar strong {
+    font-size: 12px;
+}
+
+.preview-topbar small {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 8px;
+}
+
+.preview-user {
+    width: 29px;
+    height: 29px;
+    display: grid;
+    place-items: center;
+    color: var(--primary);
+    background: #e8deff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.preview-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 17px 0 13px;
+}
+
+.preview-heading h3 {
+    font-size: 12px;
+}
+
+.preview-heading p {
+    color: var(--muted);
+    font-size: 8px;
+}
+
+.preview-add {
+    padding: 8px 9px;
+    color: white;
+    background: var(--primary);
+    border-radius: 5px;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.preview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.preview-stat {
+    position: relative;
+    min-width: 0;
+    padding: 10px 8px;
+    background: white;
+    border: 1px solid #eeedf5;
+    border-radius: 8px;
+}
+
+.mini-icon {
+    width: 23px;
+    height: 23px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 7px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.mini-icon.blue {
+    color: #2563eb;
+    background: #e8f0ff;
+}
+
+.mini-icon.purple {
+    color: var(--primary);
+    background: #eee8ff;
+}
+
+.mini-icon.orange {
+    color: #ea580c;
+    background: #fff0df;
+}
+
+.preview-stat small {
+    display: block;
+    color: var(--muted);
+    font-size: 8px;
+}
+
+.preview-stat strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 19px;
+}
+
+.mini-growth {
+    display: inline-block;
+    margin-top: 4px;
+    color: #168755;
+    font-size: 8px;
+}
+
+.preview-table {
+    margin-top: 14px;
+    padding: 12px 9px 4px;
+    background: white;
+    border: 1px solid #eeedf5;
+    border-radius: 8px;
+}
+
+.preview-table-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.preview-table-heading strong {
+    font-size: 10px;
+}
+
+.preview-table-heading span {
+    color: var(--primary);
+    font-size: 8px;
+}
+
+.preview-table-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) 0.55fr 0.65fr;
+    align-items: center;
+    gap: 5px;
+    min-height: 32px;
+    border-top: 1px solid #f0eef7;
+    font-size: 8px;
+}
+
+.table-head {
+    min-height: 26px;
+    color: var(--muted);
+    background: #faf9fd;
+    font-weight: 600;
+}
+
+.student-preview {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.student-preview i {
+    width: 21px;
+    height: 21px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: var(--primary);
+    background: #eee8ff;
+    border-radius: 50%;
+    font-size: 7px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.mini-status {
+    width: fit-content;
+    padding: 3px 5px;
+    color: #168755;
+    background: #dcfce7;
+    border-radius: 10px;
+    font-size: 7px;
+}
+
+
+/* Floating cards */
+
+.floating-card {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(231, 227, 247, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(41, 27, 83, 0.12);
+}
+
+.floating-attendance {
+    right: -12px;
+    bottom: 2px;
+}
+
+.floating-security {
+    left: -20px;
+    top: 0;
+}
+
+.floating-icon {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.floating-icon.green {
+    color: #0c9b5a;
+    background: #dff8eb;
+}
+
+.floating-icon.purple {
+    color: var(--primary);
+    background: #eee8ff;
+}
+
+.floating-card strong,
+.floating-card small,
+.floating-card span {
+    display: block;
+}
+
+.floating-card strong {
+    font-size: 12px;
+}
+
+.floating-card small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.floating-attendance strong {
+    margin-top: 2px;
+    font-size: 24px;
+}
+
+.floating-attendance span {
+    color: var(--green);
+    font-size: 9px;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.statistics {
+    position: relative;
+    z-index: 5;
+    padding: 26px 0;
+    background: #fff;
+    border-bottom: 1px solid #f1eff8;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.statistic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 20px;
+    border-right: 1px solid var(--border);
+}
+
+.statistic:last-child {
+    border-right: none;
+}
+
+.statistic-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.statistic-icon.blue {
+    color: #2563eb;
+    background: #e9f0ff;
+}
+
+.statistic-icon.purple {
+    color: var(--primary);
+    background: #eee8ff;
+}
+
+.statistic-icon.orange {
+    color: #ea580c;
+    background: #fff0df;
+}
+
+.statistic-icon.green {
+    color: var(--green);
+    background: #ddf8e9;
+}
+
+.statistic h2 {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.statistic p {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.section {
+    padding: 100px 0;
+}
+
+.features-section {
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #fcfbff 100%
+    );
+}
+
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2,
+.about-content h2 {
+    color: var(--navy);
+    font-size: clamp(29px, 3vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1.7px;
+    line-height: 1.25;
+}
+
+.section-heading h2 span,
+.about-content h2 span {
+    color: var(--primary);
+}
+
+.section-heading p {
+    max-width: 570px;
+    margin: 15px auto 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   FEATURE CARDS
+========================================= */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.feature-card {
+    padding: 29px 25px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: 0 5px 20px rgba(39, 27, 88, 0.025);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #d9ccff;
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    width: 49px;
+    height: 49px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.feature-icon.blue {
+    color: #2563eb;
+    background: #eaf1ff;
+}
+
+.feature-icon.purple {
+    color: var(--primary);
+    background: #eee8ff;
+}
+
+.feature-icon.orange {
+    color: #ea580c;
+    background: #fff0df;
+}
+
+.feature-icon.green {
+    color: #16a66a;
+    background: #ddf8e9;
+}
+
+.feature-icon.pink {
+    color: #db2777;
+    background: #fce7f3;
+}
+
+.feature-icon.indigo {
+    color: #4338ca;
+    background: #e8eaff;
+}
+
+.feature-card h3 {
+    margin-bottom: 11px;
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.feature-card p {
+    min-height: 70px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.feature-link span {
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.feature-link:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-section {
+    overflow: hidden;
+    background: #f8f6ff;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 85px;
+}
+
+.about-visual {
+    min-width: 0;
+}
+
+.about-illustration {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: linear-gradient(145deg, #ebe4ff, #dcd0ff);
+    border-radius: 22px;
+}
+
+.about-decoration {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border: 1px solid rgba(85, 37, 220, 0.18);
+    border-radius: 50%;
+}
+
+.about-decoration::after {
+    content: "";
+    position: absolute;
+    inset: 25px;
+    border: 1px solid rgba(85, 37, 220, 0.15);
+    border-radius: 50%;
+}
+
+.about-building {
+    position: relative;
+    z-index: 2;
+    width: 270px;
+    margin-top: 20px;
+}
+
+.building-roof {
+    width: 100%;
+    height: 34px;
+    background: #5a36bd;
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+}
+
+.building-body {
+    position: relative;
+    min-height: 175px;
+    padding: 20px 22px;
+    background: linear-gradient(135deg, #ffffff, #eeebfa);
+    border: 2px solid #d5c9f6;
+    border-top: none;
+    box-shadow: 0 18px 30px rgba(56, 36, 115, 0.12);
+}
+
+.building-sign {
+    width: fit-content;
+    margin: 0 auto 17px;
+    padding: 5px 14px;
+    color: white;
+    background: var(--primary);
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.building-windows {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding-right: 20px;
+}
+
+.building-windows span {
+    height: 33px;
+    background: #c7b7f9;
+    border: 4px solid white;
+    box-shadow: 0 0 0 1px #d4c7f6;
+}
+
+.building-door {
+    position: absolute;
+    bottom: 0;
+    right: 19px;
+    width: 29px;
+    height: 49px;
+    background: #6b4bc6;
+    border: 3px solid white;
+    border-bottom: none;
+}
+
+.building-ground {
+    height: 12px;
+    background: #7b5bd2;
+    border-radius: 0 0 4px 4px;
+}
+
+.about-caption {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 16px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.caption-check {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    color: #168755;
+    background: #ddf8e9;
+    border-radius: 9px;
+    font-weight: 800;
+}
+
+.about-caption strong,
+.about-caption small {
+    display: block;
+}
+
+.about-caption strong {
+    font-size: 10px;
+}
+
+.about-caption small {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.about-content h2 {
+    margin-bottom: 20px;
+}
+
+.about-content > p {
+    margin-bottom: 16px;
+    color: #69708b;
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+.about-points {
+    display: grid;
+    gap: 14px;
+    margin: 25px 0 30px;
+}
+
+.about-points div {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #454b67;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.about-points span {
+    width: 23px;
+    height: 23px;
+    display: grid;
+    place-items: center;
+    color: var(--green);
+    background: #ddf8e9;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   CALL TO ACTION
+========================================= */
+
+.cta-section {
+    padding: 75px 0;
+    background: white;
+}
+
+.cta-card {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 65px;
+    color: white;
+    background: linear-gradient(120deg, #321087, #6c35e9);
+    border-radius: 20px;
+}
+
+.cta-decoration {
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    top: -250px;
+    right: -40px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 45px rgba(255, 255, 255, 0.035),
+        0 0 0 90px rgba(255, 255, 255, 0.025);
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.cta-label {
+    color: #d4c4ff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.cta-content h2 {
+    margin-top: 14px;
+    font-size: clamp(28px, 3vw, 39px);
+    font-weight: 800;
+    letter-spacing: -1.3px;
+    line-height: 1.3;
+}
+
+.cta-content h2 span {
+    display: block;
+    color: #d7c6ff;
+}
+
+.cta-content p {
+    max-width: 510px;
+    margin: 17px 0 25px;
+    color: #e4dafa;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.btn-light {
+    color: var(--primary);
+    background: white;
+}
+
+.btn-light:hover {
+    background: #f4efff;
+}
+
+.cta-symbol {
+    position: absolute;
+    right: 70px;
+    bottom: -75px;
+    color: rgba(255, 255, 255, 0.08);
+    font-size: 290px;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    padding-top: 65px;
+    background: #15142b;
+    color: white;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 45px;
+    padding-bottom: 45px;
+}
+
+.footer-brand {
+    margin-bottom: 18px;
+}
+
+.footer-brand .brand-name {
+    color: white;
+}
+
+.footer-about > p {
+    max-width: 300px;
+    color: #a6a5c1;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.footer-column h3 {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.footer-column a,
+.footer-column p {
+    color: #a6a5c1;
+    font-size: 11px;
+    line-height: 1.8;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    min-height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid #302e49;
+}
+
+.footer-bottom p {
+    color: #a6a5c1;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+    .container {
+        width: min(100% - 44px, 1000px);
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 4.2vw, 48px);
+        letter-spacing: -2px;
+    }
+
+    .dashboard-preview {
+        grid-template-columns: 115px minmax(0, 1fr);
+        border-width: 5px;
+    }
+
+    .preview-sidebar {
+        padding: 16px 7px;
+    }
+
+    .preview-menu {
+        gap: 6px;
+        padding: 10px 5px;
+        font-size: 9px;
+    }
+
+    .preview-main {
+        padding: 12px;
+    }
+
+    .floating-security {
+        left: -8px;
+    }
+
+    .floating-attendance {
+        right: -5px;
+    }
+
+    .hero-benefits {
+        gap: 15px;
+    }
+
+    .about-grid {
+        gap: 45px;
+    }
+
+    .footer-grid {
+        gap: 25px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .container {
+        width: calc(100% - 36px);
+    }
+
+    .navbar {
+        min-height: 72px;
+    }
+
+    .brand-name {
+        font-size: 22px;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border: 1px solid var(--border);
+        background: white;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 19px;
+        height: 2px;
+        background: var(--navy);
+        border-radius: 5px;
+        transition: transform 0.2s;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 22px 22px;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(30, 25, 70, 0.06);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 13px 5px;
+        border-bottom: 1px solid #f1eff8;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .mobile-actions {
+        display: flex;
+        gap: 10px;
+        padding-top: 18px;
+    }
+
+    .mobile-actions .btn {
+        flex: 1;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 65px;
+        padding-bottom: 70px;
+    }
+
+    .hero-content {
+        max-width: 650px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 8vw, 62px);
+    }
+
+    .hero-description {
+        max-width: 600px;
+    }
+
+    .hero-visual {
+        width: min(100%, 650px);
+        margin: 0 auto;
+    }
+
+    .dashboard-preview {
+        min-height: 360px;
+        grid-template-columns: 145px minmax(0, 1fr);
+    }
+
+    .preview-sidebar {
+        padding: 20px 10px;
+    }
+
+    .preview-menu {
+        padding: 11px 7px;
+        font-size: 10px;
+    }
+
+    .preview-main {
+        padding: 17px;
+    }
+
+    .statistics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .statistic {
+        justify-content: flex-start;
+        padding: 18px;
+    }
+
+    .statistic:nth-child(2) {
+        border-right: none;
+    }
+
+    .statistic:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 23px 20px;
+    }
+
+    .feature-card p {
+        min-height: auto;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-visual {
+        max-width: 520px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-content {
+        max-width: 600px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta-card {
+        padding: 45px 35px;
+    }
+
+    .cta-symbol {
+        right: 10px;
+        font-size: 220px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .brand-name {
+        font-size: 20px;
+    }
+
+    .hero-grid {
+        padding-top: 45px;
+        gap: 35px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 41px;
+        letter-spacing: -1.9px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 17px;
+    }
+
+    .hero-visual {
+        padding: 15px 0;
+    }
+
+    .dashboard-preview {
+        grid-template-columns: 83px minmax(0, 1fr);
+        min-height: 290px;
+        border-width: 4px;
+        border-radius: 12px;
+        transform: none;
+    }
+
+    .preview-sidebar {
+        padding: 12px 5px;
+    }
+
+    .preview-brand {
+        gap: 4px;
+        padding: 0;
+        margin-bottom: 20px;
+        font-size: 8px;
+    }
+
+    .preview-brand-icon {
+        width: 19px;
+        height: 19px;
+        font-size: 10px;
+    }
+
+    .preview-menu {
+        gap: 4px;
+        padding: 9px 3px;
+        font-size: 7px;
+    }
+
+    .preview-menu span {
+        font-size: 10px;
+    }
+
+    .preview-main {
+        padding: 9px 7px;
+    }
+
+    .preview-topbar strong {
+        font-size: 9px;
+    }
+
+    .preview-topbar small {
+        font-size: 6px;
+    }
+
+    .preview-user {
+        width: 22px;
+        height: 22px;
+    }
+
+    .preview-heading {
+        margin: 12px 0 9px;
+    }
+
+    .preview-heading h3 {
+        font-size: 9px;
+    }
+
+    .preview-heading p {
+        font-size: 6px;
+    }
+
+    .preview-add {
+        padding: 6px;
+        font-size: 6px;
+    }
+
+    .preview-stats {
+        gap: 4px;
+    }
+
+    .preview-stat {
+        padding: 6px 4px;
+    }
+
+    .mini-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+
+    .preview-stat small {
+        font-size: 6px;
+    }
+
+    .preview-stat strong {
+        font-size: 14px;
+    }
+
+    .mini-growth {
+        font-size: 6px;
+    }
+
+    .preview-table {
+        margin-top: 9px;
+        padding: 8px 4px 2px;
+    }
+
+    .preview-table-heading strong {
+        font-size: 8px;
+    }
+
+    .preview-table-row {
+        grid-template-columns: minmax(0, 1.5fr) 0.45fr 0.65fr;
+        gap: 3px;
+        min-height: 27px;
+        font-size: 6px;
+    }
+
+    .student-preview {
+        gap: 3px;
+    }
+
+    .student-preview i {
+        width: 15px;
+        height: 15px;
+        font-size: 5px;
+    }
+
+    .mini-status {
+        padding: 2px 3px;
+        font-size: 5px;
+    }
+
+    .floating-card {
+        padding: 9px;
+        gap: 7px;
+        border-radius: 9px;
+    }
+
+    .floating-icon {
+        width: 27px;
+        height: 27px;
+        font-size: 14px;
+    }
+
+    .floating-card strong {
+        font-size: 9px;
+    }
+
+    .floating-card small {
+        font-size: 8px;
+    }
+
+    .floating-attendance strong {
+        font-size: 18px;
+    }
+
+    .floating-security {
+        top: 0;
+        left: -5px;
+    }
+
+    .floating-attendance {
+        right: -5px;
+        bottom: 0;
+    }
+
+    .statistics {
+        padding: 14px 0;
+    }
+
+    .statistic {
+        gap: 9px;
+        padding: 13px 5px;
+    }
+
+    .statistic-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        border-radius: 9px;
+    }
+
+    .statistic h2 {
+        font-size: 11px;
+    }
+
+    .statistic p {
+        font-size: 8px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2,
+    .about-content h2 {
+        font-size: 30px;
+        letter-spacing: -1px;
+    }
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .feature-card {
+        padding: 22px;
+    }
+
+    .feature-icon {
+        margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+        font-size: 14px;
+    }
+
+    .feature-card p {
+        font-size: 11px;
+    }
+
+    .about-illustration {
+        min-height: 300px;
+        padding: 15px;
+    }
+
+    .about-building {
+        width: 230px;
+    }
+
+    .about-caption {
+        right: 8px;
+        bottom: 12px;
+        padding: 9px;
+        gap: 7px;
+    }
+
+    .about-caption strong {
+        font-size: 8px;
+    }
+
+    .about-caption small {
+        font-size: 7px;
+    }
+
+    .about-content > p {
+        font-size: 12px;
+    }
+
+    .about-points div {
+        font-size: 11px;
+    }
+
+    .cta-section {
+        padding: 45px 0;
+    }
+
+    .cta-card {
+        padding: 35px 23px;
+        border-radius: 15px;
+    }
+
+    .cta-content h2 {
+        font-size: 29px;
+    }
+
+    .cta-content p {
+        font-size: 12px;
+    }
+
+    .cta-symbol {
+        right: -5px;
+        bottom: -40px;
+        font-size: 150px;
+    }
+
+    .footer {
+        padding-top: 45px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 18px;
+    }
+
+    .footer-about {
+        grid-column: 1 / -1;
+    }
+
+    .footer-about > p {
+        max-width: 100%;
+    }
+
+    .footer-column h3 {
+        font-size: 12px;
+    }
+
+    .footer-column a,
+    .footer-column p {
+        font-size: 10px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding: 15px 0;
+    }
+}
+
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+</style>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="home">
+        <nav class="navbar container">
+
+            <a href="#home" class="brand">
+                <span class="brand-icon">S</span>
+
+                <span class="brand-name">
+                    School<span>Hub</span>
+                </span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+                <div class="mobile-actions">
+                    <a href="login.html" class="btn btn-outline">Sign In</a>
+                    <a href="login.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="login.html" class="btn btn-primary">Get Started</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background"></div>
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-icon">&#10022;</span>
+                        School Management System
+                    </div>
+
+                    <h1>
+                        Manage Your School
+                        <span>Smarter &amp; Easier.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A complete school management solution to handle
+                        students, teachers, classes, attendance, results
+                        and more &#8212; all in one place.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="login.html" class="btn btn-primary btn-large">
+                            Sign In to Dashboard
+                            <span class="arrow">&rarr;</span>
+                        </a>
+
+                        <a href="#features" class="btn btn-outline btn-large">
+                            Explore Features
+                        </a>
+                    </div>
+
+                    <div class="hero-benefits">
+
+                        <div class="benefit">
+                            <span class="benefit-icon">&#10003;</span>
+                            <div>
+                                <strong>Secure</strong>
+                                <small>Firebase Powered</small>
+                            </div>
+                        </div>
+
+                        <div class="benefit">
+                            <span class="benefit-icon">&#8635;</span>
+                            <div>
+                                <strong>Real-time</strong>
+                                <small>Updated Records</small>
+                            </div>
+                        </div>
+
+                        <div class="benefit">
+                            <span class="benefit-icon">&#9635;</span>
+                            <div>
+                                <strong>Easy to Use</strong>
+                                <small>Simple Interface</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Dashboard Preview -->
+                <div class="hero-visual">
+
+                    <div class="visual-decoration decoration-one"></div>
+                    <div class="visual-decoration decoration-two"></div>
+
+                    <div class="dashboard-preview">
+
+                        <aside class="preview-sidebar">
+
+                            <div class="preview-brand">
+                                <span class="preview-brand-icon">S</span>
+                                <strong>SchoolHub</strong>
+                            </div>
+
+                            <div class="preview-menu active">
+                                <span>&#9638;</span> Dashboard
+                            </div>
+
+                            <div class="preview-menu">
+                                <span>&#9817;</span> Students
+                            </div>
+
+                            <div class="preview-menu">
+                                <span>&#9823;</span> Teachers
+                            </div>
+
+                            <div class="preview-menu">
+                                <span>&#9636;</span> Classes
+                            </div>
+
+                            <div class="preview-menu">
+                                <span>&#10003;</span> Attendance
+                            </div>
+
+                            <div class="preview-menu">
+                                <span>&#9635;</span> Results
+                            </div>
+
+                            <div class="preview-menu">
+                                <span>&#9881;</span> Settings
+                            </div>
+
+                        </aside>
+
+
+                        <div class="preview-main">
+
+                            <div class="preview-topbar">
+                                <div>
+                                    <strong>Dashboard</strong>
+                                    <small>Welcome back, Administrator!</small>
+                                </div>
+
+                                <div class="preview-user">A</div>
+                            </div>
+
+                            <div class="preview-heading">
+                                <div>
+                                    <h3>Overview</h3>
+                                    <p>Your school at a glance.</p>
+                                </div>
+
+                                <span class="preview-add">+ Add Student</span>
+                            </div>
+
+
+                            <div class="preview-stats">
+
+                                <div class="preview-stat">
+                                    <span class="mini-icon blue">&#9817;</span>
+                                    <small>Students</small>
+                                    <strong>1,248</strong>
+                                    <span class="mini-growth">+12%</span>
+                                </div>
+
+                                <div class="preview-stat">
+                                    <span class="mini-icon purple">&#9823;</span>
+                                    <small>Teachers</small>
+                                    <strong>78</strong>
+                                    <span class="mini-growth">+4%</span>
+                                </div>
+
+                                <div class="preview-stat">
+                                    <span class="mini-icon orange">&#9636;</span>
+                                    <small>Classes</small>
+                                    <strong>24</strong>
+                                    <span class="mini-growth">Active</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="preview-table">
+
+                                <div class="preview-table-heading">
+                                    <strong>Recent Students</strong>
+                                    <span>View all</span>
+                                </div>
+
+                                <div class="preview-table-row table-head">
+                                    <span>Student</span>
+                                    <span>Class</span>
+                                    <span>Status</span>
+                                </div>
+
+                                <div class="preview-table-row">
+                                    <span class="student-preview">
+                                        <i>AB</i> Amina Bello
+                                    </span>
+                                    <span>SS 2</span>
+                                    <span class="mini-status">Active</span>
+                                </div>
+
+                                <div class="preview-table-row">
+                                    <span class="student-preview">
+                                        <i>IM</i> Ibrahim Musa
+                                    </span>
+                                    <span>SS 1</span>
+                                    <span class="mini-status">Active</span>
+                                </div>
+
+                                <div class="preview-table-row">
+                                    <span class="student-preview">
+                                        <i>FY</i> Fatima Yusuf
+                                    </span>
+                                    <span>JSS 3</span>
+                                    <span class="mini-status">Active</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card floating-attendance">
+                        <div class="floating-icon green">&#10003;</div>
+
+                        <div>
+                            <small>Attendance Rate</small>
+                            <strong>96%</strong>
+                            <span>Attendance overview</span>
+                        </div>
+                    </div>
+
+
+                    <div class="floating-card floating-security">
+                        <div class="floating-icon purple">&#10022;</div>
+
+                        <div>
+                            <strong>Secure &amp; Reliable</strong>
+                            <small>Built for modern schools</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="statistics" aria-label="School management benefits">
+            <div class="container statistics-grid">
+
+                <div class="statistic">
+                    <div class="statistic-icon blue">&#9817;</div>
+                    <div>
+                        <h2>All-in-One</h2>
+                        <p>School Administration</p>
+                    </div>
+                </div>
+
+                <div class="statistic">
+                    <div class="statistic-icon purple">&#9889;</div>
+                    <div>
+                        <h2>Real-time</h2>
+                        <p>Data Management</p>
+                    </div>
+                </div>
+
+                <div class="statistic">
+                    <div class="statistic-icon orange">&#9636;</div>
+                    <div>
+                        <h2>Organized</h2>
+                        <p>Academic Records</p>
+                    </div>
+                </div>
+
+                <div class="statistic">
+                    <div class="statistic-icon green">&#10003;</div>
+                    <div>
+                        <h2>Secure</h2>
+                        <p>Access Management</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Features -->
+        <section class="section features-section" id="features">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">OUR FEATURES</span>
+
+                    <h2>
+                        Everything Your School Needs
+                        <span>In One Place.</span>
+                    </h2>
+
+                    <p>
+                        Powerful tools designed to make school administration
+                        simpler, faster, and more organized.
+                    </p>
+                </div>
+
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon blue">&#9817;</div>
+
+                        <h3>Student Management</h3>
+
+                        <p>
+                            Register students, update personal information,
+                            organize records, and manage student profiles.
+                        </p>
+
+                        <a href="login.html" class="feature-link">
+                            Explore module <span>&rarr;</span>
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon purple">&#9823;</div>
+
+                        <h3>Teacher Management</h3>
+
+                        <p>
+                            Manage teacher profiles, organize assignments,
+                            and keep staff information in one place.
+                        </p>
+
+                        <a href="login.html" class="feature-link">
+                            Explore module <span>&rarr;</span>
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon orange">&#9636;</div>
+
+                        <h3>Classes &amp; Subjects</h3>
+
+                        <p>
+                            Create classes, organize subjects, and assign
+                            teachers to the appropriate academic groups.
+                        </p>
+
+                        <a href="login.html" class="feature-link">
+                            Explore module <span>&rarr;</span>
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon green">&#10003;</div>
+
+                        <h3>Attendance Tracking</h3>
+
+                        <p>
+                            Record daily attendance, monitor absences,
+                            and review attendance history.
+                        </p>
+
+                        <a href="login.html" class="feature-link">
+                            Explore module <span>&rarr;</span>
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon pink">&#9637;</div>
+
+                        <h3>Results Management</h3>
+
+                        <p>
+                            Record examination scores, calculate grades,
+                            and organize academic performance reports.
+                        </p>
+
+                        <a href="login.html" class="feature-link">
+                            Explore module <span>&rarr;</span>
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon indigo">&#9881;</div>
+
+                        <h3>Secure Administration</h3>
+
+                        <p>
+                            Support role-based access to administrative
+                            features and protect school information.
+                        </p>
+
+                        <a href="login.html" class="feature-link">
+                            Explore module <span>&rarr;</span>
+                        </a>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- About -->
+        <section class="section about-section" id="about">
+
+            <div class="container about-grid">
+
+                <div class="about-visual">
+                    <div class="about-illustration">
+
+                        <div class="about-decoration"></div>
+
+                        <div class="about-building">
+                            <div class="building-roof"></div>
+
+                            <div class="building-body">
+                                <div class="building-sign">SCHOOL</div>
+
+                                <div class="building-windows">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <div class="building-door"></div>
+                            </div>
+
+                            <div class="building-ground"></div>
+                        </div>
+
+                        <div class="about-caption">
+                            <span class="caption-check">&#10003;</span>
+                            <div>
+                                <strong>Better School Management</strong>
+                                <small>One organized platform</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="about-content">
+
+                    <span class="section-label">ABOUT SCHOOLHUB</span>
+
+                    <h2>
+                        Less Paperwork.
+                        <span>More Progress.</span>
+                    </h2>
+
+                    <p>
+                        Managing a school involves many responsibilities.
+                        SchoolHub brings essential administrative tools
+                        together in one convenient platform.
+                    </p>
+
+                    <p>
+                        From student registration to attendance and academic
+                        results, the system is designed to help schools
+                        organize information and simplify everyday tasks.
+                    </p>
+
+                    <div class="about-points">
+
+                        <div>
+                            <span>&#10003;</span>
+                            Easy-to-use interface
+                        </div>
+
+                        <div>
+                            <span>&#10003;</span>
+                            Organized student and staff records
+                        </div>
+
+                        <div>
+                            <span>&#10003;</span>
+                            Centralized academic information
+                        </div>
+
+                        <div>
+                            <span>&#10003;</span>
+                            Firebase-backed data services
+                        </div>
+
+                    </div>
+
+                    <a href="login.html" class="btn btn-primary btn-large">
+                        Get Started <span class="arrow">&rarr;</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Call to Action -->
+        <section class="cta-section" id="modules">
+
+            <div class="container">
+
+                <div class="cta-card">
+
+                    <div class="cta-decoration"></div>
+
+                    <div class="cta-content">
+                        <span class="cta-label">SCHOOL ADMINISTRATION, SIMPLIFIED</span>
+
+                        <h2>
+                            Ready to Manage Your School
+                            <span>More Efficiently?</span>
+                        </h2>
+
+                        <p>
+                            Bring your school's essential management tools
+                            together in one organized place.
+                        </p>
+
+                        <a href="login.html" class="btn btn-light btn-large">
+                            Access SchoolHub <span class="arrow">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <div class="cta-symbol">S</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-about">
+
+                    <a href="#home" class="brand footer-brand">
+                        <span class="brand-icon">S</span>
+
+                        <span class="brand-name">
+                            School<span>Hub</span>
+                        </span>
+                    </a>
+
+                    <p>
+                        Making school administration simpler through
+                        organized records and practical digital tools.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#about">About Us</a>
+                    <a href="login.html">Sign In</a>
+                </div>
+
+
+                <div class="footer-column">
+                    <h3>Modules</h3>
+
+                    <a href="login.html">Students</a>
+                    <a href="login.html">Teachers</a>
+                    <a href="login.html">Attendance</a>
+                    <a href="login.html">Results</a>
+                </div>
+
+
+                <div class="footer-column">
+                    <h3>Get in Touch</h3>
+
+                    <p>Questions about the platform?</p>
+
+                    <a href="mailto:contact@schoolhub.example">
+                        Contact SchoolHub
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="currentYear"></span> SchoolHub.
+                    All rights reserved.
+                </p>
+
+                <p>Designed for better school management.</p>
+            </div>
+
+        </div>
+
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
+
+
+

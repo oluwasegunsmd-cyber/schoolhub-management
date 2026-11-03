@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes - SchoolHub</title>
+    <link rel="stylesheet" href="CSS/classes.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <script src="JS/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- MOBILE HEADER -->
+        <div class="mobile-header">
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <h2 class="mobile-logo">School<span>Hub</span></h2>
+        </div>
+
+<!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+ 
+        <aside class="sidebar2">
+            <div class="sidebar-header">
+                <h2>School<span>Hub</span></h2>
+                <p>School Management System</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="nav-link">
+                    <span class="nav-icon">👨‍🎓</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="teachers.html" class="nav-link">
+                    <span class="nav-icon">👨‍🏫</span>
+                    <span>Teachers</span>
+                </a>
+
+                <a href="classes.html" class="nav-link">
+                    <span class="nav-icon">🏫</span>
+                    <span>Classes</span>
+                </a>
+
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">💳</span>
+                    <span>Payments</span>
+                </a>
+
+                <a href="settings.html" class="nav-link active">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Sidebar -->
+        <!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <div class="sidebar-header">
+        <h2>School<span>Hub</span></h2>
+        <p>School Management System</p>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html" class="nav-link">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="students.html" class="nav-link">
+            <span class="nav-icon">👨‍🎓</span>
+            <span>Students</span>
+        </a>
+
+        <a href="teachers.html" class="nav-link">
+            <span class="nav-icon">👨‍🏫</span>
+            <span>Teachers</span>
+        </a>
+
+        <a href="classes.html" class="nav-link active">
+            <span class="nav-icon">🏫</span>
+            <span>Classes</span>
+        </a>
+
+        <a href="attendance.html" class="nav-link">
+            <span class="nav-icon">📋</span>
+            <span>Attendance</span>
+        </a>
+
+        <a href="payments.html" class="nav-link">
+            <span class="nav-icon">💳</span>
+            <span>Payments</span>
+        </a>
+
+        <a href="settings.html" class="nav-link">
+            <span class="nav-icon">⚙️</span>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+        <a href="index.html" class="nav-link">
+            <span class="nav-icon">🚪</span>
+            <span>Logout</span>
+        </a>
+    </div>
+
+</aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Page Header -->
+            <header class="page-header">
+                <div>
+                    <h1>Classes Management</h1>
+                    <p>Manage school classes, class teachers, and student allocation.</p>
+                </div>
+
+                <button type="button" class="btn btn-primary">
+                    + Add New Class
+                </button>
+            </header>
+
+            <!-- Statistics Cards -->
+            <section class="stats-container">
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏫</div>
+
+                    <div class="stat-info">
+                        <h3>Total Classes</h3>
+                        <p class="stat-number" id="totalClasses">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">👨‍🎓</div>
+
+                    <div class="stat-info">
+                        <h3>Total Students</h3>
+                        <p class="stat-number" id="classPageTotalStudents">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">👩‍🏫</div>
+
+                    <div class="stat-info">
+                        <h3>Class Teachers</h3>
+                        <p class="stat-number" id="classPageTotalTeachers">0</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Add Class Form -->
+            <section class="form-section">
+
+                <div class="section-header">
+                    <h2>Add New Class</h2>
+                    <p>Enter the details of the new class below.</p>
+                </div>
+
+                <form id="classForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="className">Class Name</label>
+                            <input
+                                type="text"
+                                id="className"
+                                name="className"
+                                placeholder="e.g. JSS 1A"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="classLevel">Class Level</label>
+
+                            <select id="classLevel" name="classLevel" required>
+                                <option value="">Select class level</option>
+                                <option value="Nursery">Nursery</option>
+                                <option value="Primary">Primary</option>
+                                <option value="JSS">Junior Secondary (JSS)</option>
+                                <option value="SSS">Senior Secondary (SSS)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="classTeacher">Class Teacher</label>
+
+                            <select id="classTeacher" name="classTeacher" required>
+                                <option value="">Select class teacher</option>
+                                <option value="Teacher 1">Teacher 1</option>
+                                <option value="Teacher 2">Teacher 2</option>
+                                <option value="Teacher 3">Teacher 3</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="academicSession">Academic Session</label>
+
+                            <select
+                                id="academicSession"
+                                name="academicSession"
+                                required
+                            >
+                                <option value="">Select academic session</option>
+                                <option value="2025/2026">2025/2026</option>
+                                <option value="2026/2027">2026/2027</option>
+                                <option value="2027/2028">2027/2028</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">
+                            Clear Form
+                        </button>
+
+                        <button type="submit" class="btn btn-primary">
+                            Save Class
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- Classes Table -->
+            <section class="table-section">
+
+                <div class="section-header">
+                    <h2>All Classes</h2>
+                    <p>View and manage all school classes.</p>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="table-toolbar">
+                    <input
+                        type="search"
+                        id="classSearch"
+                        placeholder="Search classes..."
+                        aria-label="Search classes"
+                    >
+                </div>
+
+                <!-- Classes Table -->
+                <div class="table-responsive">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Class Name</th>
+                                <th>Level</th>
+                                <th>Class Teacher</th>
+                                <th>Academic Session</th>
+                                <th>Students</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="classesTableBody">
+
+                            <!-- <tr>
+                                <td>1</td>
+                                <td>JSS 1A</td>
+                                <td>Junior Secondary</td>
+                                <td>Teacher 1</td>
+                                <td>2026/2027</td>
+                                <td>35</td>
+
+                                <td>
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-view"
+                                    >
+                                        View
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-edit"
+                                    >
+                                        Edit
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-delete"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Primary 5</td>
+                                <td>Primary</td>
+                                <td>Teacher 2</td>
+                                <td>2026/2027</td>
+                                <td>40</td>
+
+                                <td>
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-view"
+                                    >
+                                        View
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-edit"
+                                    >
+                                        Edit
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-delete"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <p>&copy; 2026 SchoolMS. All rights reserved.</p>
+            </footer>
+
+        </main>
+
+    </div>
+    <script>
+    const mobileHeader = document.querySelector(".mobile-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar2");
+    const sidebarOverlay = document.querySelector(".sidebar-overlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
+
+    let lastScrollPosition = window.scrollY;
+
+    // Open the sidebar
+    function openSidebar() {
+        sidebar.classList.add("sidebar-open");
+        sidebarOverlay.classList.add("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        menuToggle.textContent = "✕";
+        document.body.classList.add("menu-open");
+    }
+
+    // Close the sidebar
+    function closeSidebar() {
+        sidebar.classList.remove("sidebar-open");
+        sidebarOverlay.classList.remove("overlay-visible");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        document.body.classList.remove("menu-open");
+    }
+
+    // Toggle the menu when the button is clicked
+    menuToggle.addEventListener("click", () => {
+        if (sidebar.classList.contains("sidebar-open")) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    // Close the sidebar when the overlay is clicked
+    sidebarOverlay.addEventListener("click", closeSidebar);
+
+    // Close the sidebar after a navigation link is clicked
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", closeSidebar);
+    });
+
+    // Hide the header while scrolling down and show it while scrolling up
+    window.addEventListener("scroll", () => {
+        if (window.innerWidth > 1024) {
+            return;
+        }
+
+        const currentScrollPosition = window.scrollY;
+        const sidebarIsOpen = sidebar.classList.contains("sidebar-open");
+
+        if (sidebarIsOpen) {
+            lastScrollPosition = currentScrollPosition;
+            return;
+        }
+
+        if (currentScrollPosition <= 0) {
+            mobileHeader.classList.remove("header-hidden");
+        } else if (currentScrollPosition > lastScrollPosition) {
+            mobileHeader.classList.add("header-hidden");
+        } else if (currentScrollPosition < lastScrollPosition) {
+            mobileHeader.classList.remove("header-hidden");
+        }
+
+        lastScrollPosition = currentScrollPosition;
+    });
+
+    // Close the mobile sidebar when switching to desktop width
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+            closeSidebar();
+            mobileHeader.classList.remove("header-hidden");
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="JS/classes.js"></script>
+</body>
+</html>
