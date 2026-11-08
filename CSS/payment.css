@@ -11,9 +11,7 @@
     background-color: #f5f7fb;
 }
 
-/* ========================================
-   SIDEBAR
-======================================== */
+
 
 .sidebar {
     width: 250px;
@@ -48,9 +46,7 @@
     color: #94a3b8;
 }
 
-/* ========================================
-   SIDEBAR NAVIGATION
-======================================== */
+
 
 .sidebar-nav {
     display: flex;
@@ -86,9 +82,7 @@
     font-size: 18px;
 }
 
-/* ========================================
-   SIDEBAR FOOTER
-======================================== */
+
 
 .sidebar-footer {
     margin-top: 30px;
@@ -96,9 +90,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ========================================
-   GENERAL RESET
-======================================== */
+
 
 * {
     margin: 0;
@@ -112,9 +104,7 @@ body {
     color: #1e293b;
 }
 
-/* ========================================
-   RESPONSIVE SIDEBAR
-======================================== */
+
 
 @media (max-width: 768px) {
     .dashboard-container {
@@ -156,7 +146,7 @@ body {
     background-color: #f5f7fb;
 }
 
-/* Page Header */
+
 
 .page-header {
     display: flex;
@@ -186,9 +176,7 @@ body {
     font-weight: 600;
 }
 
-/* ========================================
-   PAYMENT STATISTICS
-======================================== */
+
 
 .payment-stats {
     display: grid;
@@ -253,9 +241,7 @@ body {
     color: #94a3b8;
 }
 
-/* ========================================
-   SECTION HEADERS
-======================================== */
+
 
 .payment-form-section,
 .payment-records-section {
@@ -286,9 +272,7 @@ body {
     color: #64748b;
 }
 
-/* ========================================
-   PAYMENT FORM
-======================================== */
+
 
 .payment-form {
     display: grid;
@@ -332,7 +316,7 @@ body {
     color: #94a3b8;
 }
 
-/* Form Buttons */
+
 
 .form-actions {
     grid-column: 1 / -1;
@@ -388,9 +372,7 @@ body {
     background-color: #eef2ff;
 }
 
-/* ========================================
-   SEARCH AND FILTERS
-======================================== */
+
 
 .payment-toolbar {
     display: flex;
@@ -438,9 +420,7 @@ body {
     border-color: #4f46e5;
 }
 
-/* ========================================
-   PAYMENT TABLE
-======================================== */
+
 
 .table-container {
     width: 100%;
@@ -485,9 +465,7 @@ body {
     border-bottom: none;
 }
 
-/* ========================================
-   PAYMENT STATUS BADGES
-======================================== */
+
 
 .status-badge {
     display: inline-block;
@@ -512,9 +490,7 @@ body {
     color: #1d4ed8;
 }
 
-/* ========================================
-   TABLE ACTION BUTTONS
-======================================== */
+
 
 .action-btn {
     padding: 7px 12px;
@@ -534,9 +510,7 @@ body {
     background-color: #e0e7ff;
 }
 
-/* ========================================
-   TABLE FOOTER AND PAGINATION
-======================================== */
+
 
 .table-footer {
     display: flex;
@@ -577,9 +551,7 @@ body {
     border-color: #4f46e5;
 }
 
-/* ========================================
-   PAGE FOOTER
-======================================== */
+
 
 .page-footer {
     padding: 20px 0;
@@ -588,9 +560,7 @@ body {
     font-size: 12px;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
+
 
 @media (max-width: 1200px) {
     .payment-stats {
@@ -670,7 +640,7 @@ body {
         font-size: 23px;
     }
 }
-/* MOBILE HEADER */
+
 .mobile-header {
     display: none;
 }
@@ -696,18 +666,18 @@ body {
 .sidebar2{
     display: none;
 }
-/* SIDEBAR OVERLAY */
+
 .sidebar-overlay {
     display: none;
 }
 
-/* TABLET AND MOBILE */
+
 @media (max-width: 1024px) {
     .mobile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* gap: 12px; */
+        
         position: fixed;
         top: 0;
         left: 0;
@@ -727,7 +697,7 @@ body {
         transform: translateY(-100%);
     }
 
-    /* Slide-in sidebar */
+    
     .sidebar{
         display: flex;
         flex-direction: column;
@@ -769,7 +739,7 @@ body {
         text-align: center;
     }
 
-    /* Dark background behind sidebar */
+    
     .sidebar-overlay {
         display: block;
         position: fixed;
@@ -797,13 +767,13 @@ body {
     }
 }
 
-/* SMALL PHONES */
+
 @media (max-width: 480px) {
     .mobile-logo {
         font-size: 22px;
     }
 }
-/* MOBILE SIDEBAR FIX */
+
 @media (max-width: 1024px) {
     .sidebar2 {
         display: flex !important;
@@ -868,7 +838,7 @@ body {
     }
 }
 
-/* FIXED DESKTOP SIDEBAR */
+
 @media (min-width: 1025px) {
     .sidebar {
         position: fixed;

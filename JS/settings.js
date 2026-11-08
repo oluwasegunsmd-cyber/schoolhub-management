@@ -12,11 +12,6 @@ import {
     sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
-
-// =============================================
-// HTML ELEMENTS
-// =============================================
-
 const schoolName = document.getElementById("schoolName");
 const schoolEmail = document.getElementById("schoolEmail");
 const schoolPhone = document.getElementById("schoolPhone");
@@ -27,17 +22,7 @@ const adminEmail = document.getElementById("adminEmail");
 
 const themeSelect = document.getElementById("theme");
 
-
-// =============================================
-// FIRESTORE SETTINGS DOCUMENT
-// =============================================
-
 const settingsRef = doc(db, "settings", "school");
-
-
-// =============================================
-// SWEETALERT HELPER
-// =============================================
 
 function showAlert(icon, title, text) {
     return Swal.fire({
@@ -47,11 +32,6 @@ function showAlert(icon, title, text) {
         confirmButtonText: "OK"
     });
 }
-
-
-// =============================================
-// LOAD SETTINGS FROM FIRESTORE
-// =============================================
 
 async function loadSettings() {
     try {
@@ -87,10 +67,6 @@ async function loadSettings() {
     applyTheme(savedTheme);
     loadNotificationPreferences();
 }
-
-// =============================================
-// SAVE SCHOOL INFORMATION
-// =============================================
 
 async function saveSchoolSettings() {
     const schoolData = {
@@ -143,11 +119,6 @@ async function saveSchoolSettings() {
     }
 }
 
-
-// =============================================
-// SAVE ADMINISTRATOR PROFILE
-// =============================================
-
 async function saveAdminSettings() {
     const name = adminName?.value.trim() || "";
 
@@ -194,13 +165,6 @@ async function saveAdminSettings() {
         );
     }
 }
-
-
-// =============================================
-// CONNECT SAVE BUTTONS
-// =============================================
-
-// Prefer explicit form IDs if they exist.
 const schoolForm = document.getElementById("schoolForm");
 const adminForm = document.getElementById("adminForm");
 
@@ -217,10 +181,6 @@ if (adminForm) {
         await saveAdminSettings();
     });
 }
-
-
-// If the page doesn't have those form IDs,
-// connect the Save buttons inside the relevant sections.
 
 if (!schoolForm || !adminForm) {
     const primaryButtons = document.querySelectorAll(".btn-primary");
@@ -246,11 +206,6 @@ if (!schoolForm || !adminForm) {
         });
     });
 }
-
-
-// =============================================
-// THEME SETTINGS
-// =============================================
 
 function applyTheme(theme) {
     document.documentElement.dataset.theme = theme;
@@ -281,11 +236,6 @@ if (themeSelect) {
         );
     });
 }
-
-
-// =============================================
-// NOTIFICATION PREFERENCES
-// =============================================
 
 function loadNotificationPreferences() {
     const savedPreferences = JSON.parse(
@@ -321,11 +271,6 @@ document.querySelectorAll(".toggle input").forEach((toggle) => {
         saveNotificationPreferences();
     });
 });
-
-
-// =============================================
-// PASSWORD RESET
-// =============================================
 
 async function resetAdminPassword() {
     const currentUser = auth.currentUser;
@@ -372,9 +317,6 @@ async function resetAdminPassword() {
         );
     }
 }
-
-
-// Connect a password-reset button if one exists.
 const passwordResetButton = document.getElementById(
     "resetPasswordBtn"
 );
@@ -385,11 +327,6 @@ if (passwordResetButton) {
         resetAdminPassword
     );
 }
-
-
-// =============================================
-// INITIALIZE SETTINGS PAGE
-// =============================================
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) {

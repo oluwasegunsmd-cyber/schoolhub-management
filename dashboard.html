@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/theme.css">
     <script src="JS/theme.js"></script>
 </head>
+<link rel="icon" href="image/ChatGPT Image Nov 7, 2026, 07_47_40 AM.png">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -45,7 +46,7 @@ display: flex;
 min-height: 100vh;
 }
 
-/* SIDEBAR */
+
 
 .sidebar {
 width: 250px;
@@ -127,7 +128,7 @@ transition: 0.2s;
 background: #ffe4e6;
 }
 
-/* MAIN CONTENT */
+
 
 .main-content {
 flex: 1;
@@ -183,7 +184,7 @@ color: var(--text);
 margin-top: 4px;
 }
 
-/* WELCOME BANNER */
+
 
 .welcome-banner {
 background: linear-gradient(115deg, #4f46e5, #7c3aed);
@@ -213,7 +214,7 @@ color: #e0e7ff;
 font-size: 65px;
 }
 
-/* STATISTICS */
+
 
 .section-heading {
 font-size: 18px;
@@ -292,7 +293,7 @@ color: var(--success);
 margin-top: 10px;
 }
 
-/* LOWER DASHBOARD PANELS */
+
 
 .dashboard-grid {
 display: grid;
@@ -371,7 +372,7 @@ margin-left: auto;
 white-space: nowrap;
 }
 
-/* QUICK ACTIONS */
+
 
 .quick-actions {
 display: grid;
@@ -408,7 +409,7 @@ font-weight: 600;
 color: var(--dark);
 }
 
-/* FOOTER */
+
 
 .footer {
 text-align: center;
@@ -418,7 +419,7 @@ margin-top: 35px;
 padding: 15px 0;
 }
 
-/* RESPONSIVE DESIGN */
+
 
 @media (max-width: 1200px) {
 .stats-grid {
@@ -541,7 +542,7 @@ display: block;
     display: none;
 }
 }
-/* MOBILE HEADER */
+
 .mobile-header {
     display: none;
 }
@@ -573,18 +574,18 @@ display: block;
 .sidebar2{
     display: none;
 }
-/* SIDEBAR OVERLAY */
+
 .sidebar-overlay {
     display: none;
 }
 
-/* TABLET AND MOBILE */
+
 @media (max-width: 1024px) {
     .mobile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* gap: 12px; */
+        
         position: fixed;
         top: 0;
         left: 0;
@@ -604,7 +605,7 @@ display: block;
         transform: translateY(-100%);
     }
 
-    /* Slide-in sidebar */
+    
     .sidebar{
         display: flex;
         flex-direction: column;
@@ -646,7 +647,7 @@ display: block;
         text-align: center;
     }
 
-    /* Dark background behind sidebar */
+    
     .sidebar-overlay {
         display: block;
         position: fixed;
@@ -674,13 +675,13 @@ display: block;
     }
 }
 
-/* SMALL PHONES */
+
 @media (max-width: 480px) {
     .mobile-logo {
         font-size: 22px;
     }
 }
-/* MOBILE SIDEBAR FIX */
+
 @media (max-width: 1024px) {
     .sidebar2 {
         display: flex !important;
@@ -750,7 +751,7 @@ display: block;
 <body>
     
     <div class="dashboard">
-        <!-- MOBILE HEADER -->
+        
         <div class="mobile-header">
             <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 ☰
@@ -759,10 +760,10 @@ display: block;
             <h2 class="mobile-logo">School<span>Hub</span></h2>
         </div>
 
-<!-- SIDEBAR OVERLAY -->
+
     <div class="sidebar-overlay"></div>
 
-<!-- SIDEBAR -->
+
  
         <aside class="sidebar2">
             <div class="sidebar-header">
@@ -815,21 +816,13 @@ display: block;
             </div>
         </aside>
 
-    <!-- Sidebar -->
+    
     <aside class="sidebar">
         <div class="logo">School<span>Hub.</span></div>
 
         <p class="menu-label">MAIN MENU</p>
 
-        <!-- <ul class="nav-links">
-            <li><a href="#" class="active"><span class="nav-icon">📊</span> Dashboard</a></li>
-            <li><a href="#"><span class="nav-icon">👨‍🎓</span> Students</a></li>
-            <li><a href="#"><span class="nav-icon">👩‍🏫</span> Teachers</a></li>
-            <li><a href="#"><span class="nav-icon">📚</span> Classes</a></li>
-            <li><a href="#"><span class="nav-icon">📝</span> Attendance</a></li>
-            <li><a href="#"><span class="nav-icon">💰</span> Payments</a></li>
-            <li><a href="#"><span class="nav-icon">⚙️</span> Settings</a></li>
-        </ul> -->
+        
         <ul class="nav-links">
             <li>
                 <a href="dashboard.html" class="active">
@@ -886,7 +879,7 @@ display: block;
         </div>
     </aside>
 
-    <!-- Main Content -->
+    
     <main class="main-content">
 
         <header class="topbar">
@@ -904,7 +897,7 @@ display: block;
             </div>
         </header>
 
-        <!-- Welcome Banner -->
+        
         <section class="welcome-banner">
             <div>
                 <h2>Welcome back! 👋</h2>
@@ -914,7 +907,7 @@ display: block;
             <div class="banner-icon">🎓</div>
         </section>
 
-        <!-- Statistics -->
+        
         <h2 class="section-heading">School Overview</h2>
 
         <section class="stats-grid">
@@ -957,7 +950,7 @@ display: block;
 
         </section>
 
-        <!-- Dashboard Panels -->
+        
         <section class="dashboard-grid">
 
             <div class="panel">
@@ -1017,8 +1010,6 @@ display: block;
     const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
 
     let lastScrollPosition = window.scrollY;
-
-    // Open the sidebar
     function openSidebar() {
         sidebar.classList.add("sidebar-open");
         sidebarOverlay.classList.add("overlay-visible");
@@ -1027,8 +1018,6 @@ display: block;
         menuToggle.textContent = "✕";
         document.body.classList.add("menu-open");
     }
-
-    // Close the sidebar
     function closeSidebar() {
         sidebar.classList.remove("sidebar-open");
         sidebarOverlay.classList.remove("overlay-visible");
@@ -1037,8 +1026,6 @@ display: block;
         menuToggle.textContent = "☰";
         document.body.classList.remove("menu-open");
     }
-
-    // Toggle the menu when the button is clicked
     menuToggle.addEventListener("click", () => {
         if (sidebar.classList.contains("sidebar-open")) {
             closeSidebar();
@@ -1046,16 +1033,10 @@ display: block;
             openSidebar();
         }
     });
-
-    // Close the sidebar when the overlay is clicked
     sidebarOverlay.addEventListener("click", closeSidebar);
-
-    // Close the sidebar after a navigation link is clicked
     sidebarLinks.forEach(link => {
         link.addEventListener("click", closeSidebar);
     });
-
-    // Hide the header while scrolling down and show it while scrolling up
     window.addEventListener("scroll", () => {
         if (window.innerWidth > 1024) {
             return;
@@ -1079,8 +1060,6 @@ display: block;
 
         lastScrollPosition = currentScrollPosition;
     });
-
-    // Close the mobile sidebar when switching to desktop width
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1024) {
             closeSidebar();

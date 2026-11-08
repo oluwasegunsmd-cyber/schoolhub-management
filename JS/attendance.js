@@ -1,6 +1,3 @@
-// ==========================================
-// SCHOOLHUB ATTENDANCE MANAGEMENT
-// ==========================================
 
 import { db } from "./firebase.js";
 
@@ -13,11 +10,6 @@ import {
     deleteDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
-
-
-// ==========================================
-// HTML ELEMENTS
-// ==========================================
 
 const attendanceForm = document.getElementById("attendanceForm");
 
@@ -32,19 +24,9 @@ const attendanceSearch = document.getElementById("attendanceSearch");
 const classFilter = document.getElementById("classFilter");
 const statusFilter = document.getElementById("statusFilter");
 
-
-// ==========================================
-// FIRESTORE COLLECTION
-// ==========================================
-
 const attendanceCollection = collection(db, "attendance");
 
 let attendanceRecords = [];
-
-
-// ==========================================
-// SET DEFAULT DATE
-// ==========================================
 
 attendanceDateInput.value = getLocalDate();
 
@@ -59,9 +41,7 @@ function getLocalDate() {
 }
 
 
-// ==========================================
-// LOAD ATTENDANCE RECORDS
-// ==========================================
+
 
 async function loadAttendance() {
     try {
@@ -86,10 +66,6 @@ async function loadAttendance() {
     }
 }
 
-
-// ==========================================
-// DISPLAY ATTENDANCE RECORDS
-// ==========================================
 
 function renderAttendance() {
 
@@ -198,10 +174,6 @@ function renderAttendance() {
 }
 
 
-// ==========================================
-// SAVE ATTENDANCE
-// ==========================================
-
 attendanceForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
@@ -225,9 +197,6 @@ attendanceForm.addEventListener("submit", async (event) => {
 
         return;
     }
-
-    // Prevent duplicate attendance for the same name,
-    // class and date using the currently loaded records.
 
     const duplicate = attendanceRecords.some((record) => {
 
@@ -297,11 +266,6 @@ attendanceForm.addEventListener("submit", async (event) => {
         });
     }
 });
-
-
-// ==========================================
-// EDIT ATTENDANCE
-// ==========================================
 
 async function editAttendance(id) {
 
@@ -433,11 +397,6 @@ async function editAttendance(id) {
     }
 }
 
-
-// ==========================================
-// DELETE ATTENDANCE
-// ==========================================
-
 async function deleteAttendance(id) {
 
     const record = attendanceRecords.find(
@@ -492,11 +451,6 @@ async function deleteAttendance(id) {
     }
 }
 
-
-// ==========================================
-// UPDATE ATTENDANCE STATISTICS
-// ==========================================
-
 function updateStatistics() {
 
     const today = getLocalDate();
@@ -544,21 +498,11 @@ function updateStatistics() {
     }
 }
 
-
-// ==========================================
-// SEARCH AND FILTERS
-// ==========================================
-
 attendanceSearch.addEventListener("input", renderAttendance);
 
 classFilter.addEventListener("change", renderAttendance);
 
 statusFilter.addEventListener("change", renderAttendance);
-
-
-// ==========================================
-// ESCAPE HTML
-// ==========================================
 
 function escapeHTML(value) {
 
@@ -575,10 +519,5 @@ function escapeHTML(value) {
         return entities[character];
     });
 }
-
-
-// ==========================================
-// INITIALIZE ATTENDANCE PAGE
-// ==========================================
 
 loadAttendance();

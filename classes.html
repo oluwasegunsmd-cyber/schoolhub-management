@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="CSS/theme.css">
     <script src="JS/theme.js"></script>
 </head>
+<link rel="icon" href="image/ChatGPT Image Nov 7, 2026, 07_47_40 AM.png">
 <body>
     <div class="dashboard-container">
-        <!-- MOBILE HEADER -->
+        
         <div class="mobile-header">
             <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 ☰
@@ -19,10 +20,10 @@
             <h2 class="mobile-logo">School<span>Hub</span></h2>
         </div>
 
-<!-- SIDEBAR OVERLAY -->
+
     <div class="sidebar-overlay"></div>
 
-<!-- SIDEBAR -->
+
  
         <aside class="sidebar2">
             <div class="sidebar-header">
@@ -74,8 +75,8 @@
                 </a>
             </div>
         </aside>
-        <!-- Sidebar -->
-        <!-- SIDEBAR -->
+        
+        
 <aside class="sidebar">
 
     <div class="sidebar-header">
@@ -131,10 +132,10 @@
 
 </aside>
 
-        <!-- Main Content -->
+        
         <main class="main-content">
 
-            <!-- Page Header -->
+            
             <header class="page-header">
                 <div>
                     <h1>Classes Management</h1>
@@ -146,7 +147,7 @@
                 </button>
             </header>
 
-            <!-- Statistics Cards -->
+            
             <section class="stats-container">
 
                 <div class="stat-card">
@@ -178,7 +179,7 @@
 
             </section>
 
-            <!-- Add Class Form -->
+            
             <section class="form-section">
 
                 <div class="section-header">
@@ -196,7 +197,7 @@
                                 type="text"
                                 id="className"
                                 name="className"
-                                placeholder="e.g. JSS 1A"
+                                placeholder="e.g. JSS 1"
                                 required
                             >
                         </div>
@@ -255,7 +256,7 @@
 
             </section>
 
-            <!-- Classes Table -->
+            
             <section class="table-section">
 
                 <div class="section-header">
@@ -263,7 +264,7 @@
                     <p>View and manage all school classes.</p>
                 </div>
 
-                <!-- Search Bar -->
+                
                 <div class="table-toolbar">
                     <input
                         type="search"
@@ -273,7 +274,7 @@
                     >
                 </div>
 
-                <!-- Classes Table -->
+                
                 <div class="table-responsive">
 
                     <table>
@@ -291,69 +292,7 @@
 
                         <tbody id="classesTableBody">
 
-                            <!-- <tr>
-                                <td>1</td>
-                                <td>JSS 1A</td>
-                                <td>Junior Secondary</td>
-                                <td>Teacher 1</td>
-                                <td>2026/2027</td>
-                                <td>35</td>
-
-                                <td>
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-view"
-                                    >
-                                        View
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-edit"
-                                    >
-                                        Edit
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-delete"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Primary 5</td>
-                                <td>Primary</td>
-                                <td>Teacher 2</td>
-                                <td>2026/2027</td>
-                                <td>40</td>
-
-                                <td>
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-view"
-                                    >
-                                        View
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-edit"
-                                    >
-                                        Edit
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-delete"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr> -->
+                            
 
                         </tbody>
                     </table>
@@ -362,7 +301,7 @@
 
             </section>
 
-            <!-- Footer -->
+            
             <footer class="page-footer">
                 <p>&copy; 2026 SchoolMS. All rights reserved.</p>
             </footer>
@@ -378,8 +317,6 @@
     const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
 
     let lastScrollPosition = window.scrollY;
-
-    // Open the sidebar
     function openSidebar() {
         sidebar.classList.add("sidebar-open");
         sidebarOverlay.classList.add("overlay-visible");
@@ -388,8 +325,6 @@
         menuToggle.textContent = "✕";
         document.body.classList.add("menu-open");
     }
-
-    // Close the sidebar
     function closeSidebar() {
         sidebar.classList.remove("sidebar-open");
         sidebarOverlay.classList.remove("overlay-visible");
@@ -398,8 +333,6 @@
         menuToggle.textContent = "☰";
         document.body.classList.remove("menu-open");
     }
-
-    // Toggle the menu when the button is clicked
     menuToggle.addEventListener("click", () => {
         if (sidebar.classList.contains("sidebar-open")) {
             closeSidebar();
@@ -407,16 +340,10 @@
             openSidebar();
         }
     });
-
-    // Close the sidebar when the overlay is clicked
     sidebarOverlay.addEventListener("click", closeSidebar);
-
-    // Close the sidebar after a navigation link is clicked
     sidebarLinks.forEach(link => {
         link.addEventListener("click", closeSidebar);
     });
-
-    // Hide the header while scrolling down and show it while scrolling up
     window.addEventListener("scroll", () => {
         if (window.innerWidth > 1024) {
             return;
@@ -440,8 +367,6 @@
 
         lastScrollPosition = currentScrollPosition;
     });
-
-    // Close the mobile sidebar when switching to desktop width
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1024) {
             closeSidebar();

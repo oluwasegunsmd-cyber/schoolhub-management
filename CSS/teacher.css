@@ -1,8 +1,6 @@
-/* ========================================
-   TEACHERS MANAGEMENT PAGE
-======================================== */
 
-/* RESET */
+
+
 
 * {
     margin: 0;
@@ -17,9 +15,7 @@ body {
 }
 
 
-/* ========================================
-   DASHBOARD LAYOUT
-======================================== */
+
 
 .dashboard-container {
     display: flex;
@@ -35,9 +31,7 @@ body {
 }
 
 
-/* ========================================
-   SIDEBAR
-======================================== */
+
 
 .sidebar {
     width: 250px;
@@ -112,9 +106,7 @@ body {
 }
 
 
-/* ========================================
-   PAGE HEADER
-======================================== */
+
 
 .page-header {
     display: flex;
@@ -136,9 +128,7 @@ body {
 }
 
 
-/* ========================================
-   BUTTONS
-======================================== */
+
 
 .btn {
     display: inline-flex;
@@ -176,9 +166,7 @@ body {
 }
 
 
-/* ========================================
-   TEACHER STATISTICS
-======================================== */
+
 
 .teacher-stats {
     display: grid;
@@ -233,9 +221,7 @@ body {
 }
 
 
-/* ========================================
-   FORM AND LIST CARDS
-======================================== */
+
 
 .teacher-form-section,
 .teachers-list-section {
@@ -267,9 +253,7 @@ body {
 }
 
 
-/* ========================================
-   TEACHER FORM
-======================================== */
+
 
 .form-grid {
     display: grid;
@@ -321,9 +305,7 @@ body {
 }
 
 
-/* ========================================
-   SEARCH
-======================================== */
+
 
 .teacher-toolbar {
     margin-bottom: 22px;
@@ -349,9 +331,7 @@ body {
 }
 
 
-/* ========================================
-   TEACHERS TABLE
-======================================== */
+
 
 .table-container {
     width: 100%;
@@ -397,9 +377,7 @@ body {
 }
 
 
-/* ========================================
-   TEACHER PROFILE
-======================================== */
+
 
 .teacher-profile {
     display: flex;
@@ -424,9 +402,7 @@ body {
 }
 
 
-/* ========================================
-   ACTION BUTTONS
-======================================== */
+
 
 .action-buttons {
     display: flex;
@@ -491,9 +467,7 @@ body {
 }
 
 
-/* ========================================
-   TABLE FOOTER
-======================================== */
+
 
 .table-footer {
     display: flex;
@@ -508,9 +482,7 @@ body {
 }
 
 
-/* ========================================
-   PAGE FOOTER
-======================================== */
+
 
 .page-footer {
     padding: 20px 0;
@@ -520,9 +492,7 @@ body {
 }
 
 
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
+
 
 @media (max-width: 1100px) {
 
@@ -613,7 +583,7 @@ body {
     }
 
 }
-/* MOBILE HEADER */
+
 .mobile-header {
     display: none;
 }
@@ -639,18 +609,18 @@ body {
 .sidebar2{
     display: none;
 }
-/* SIDEBAR OVERLAY */
+
 .sidebar-overlay {
     display: none;
 }
 
-/* TABLET AND MOBILE */
+
 @media (max-width: 1024px) {
     .mobile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* gap: 12px; */
+        
         position: fixed;
         top: 0;
         left: 0;
@@ -670,7 +640,7 @@ body {
         transform: translateY(-100%);
     }
 
-    /* Slide-in sidebar */
+    
     .sidebar{
         display: flex;
         flex-direction: column;
@@ -712,7 +682,7 @@ body {
         text-align: center;
     }
 
-    /* Dark background behind sidebar */
+    
     .sidebar-overlay {
         display: block;
         position: fixed;
@@ -740,13 +710,13 @@ body {
     }
 }
 
-/* SMALL PHONES */
+
 @media (max-width: 480px) {
     .mobile-logo {
         font-size: 22px;
     }
 }
-/* MOBILE SIDEBAR FIX */
+
 @media (max-width: 1024px) {
     .sidebar2 {
         display: flex !important;
@@ -811,7 +781,7 @@ body {
     }
 }
 
-/* FIXED DESKTOP SIDEBAR */
+
 @media (min-width: 1025px) {
     .sidebar {
         position: fixed;

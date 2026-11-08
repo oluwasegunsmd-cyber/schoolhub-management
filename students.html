@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/theme.css">
     <script src="JS/theme.js"></script>
 </head>
+<link rel="icon" href="image/ChatGPT Image Nov 7, 2026, 07_47_40 AM.png">
 <style>
     .students-page {
         max-width: 1250px;
@@ -58,7 +59,7 @@
         white-space: nowrap;
     }
 
-    /* STUDENT SUMMARY */
+    
 
     .student-summary {
         background: white;
@@ -103,7 +104,7 @@
         font-size: 12px;
     }
 
-    /* FORM AND STUDENT LIST CARDS */
+    
 
     .student-form-card,
     .student-list-card {
@@ -130,7 +131,7 @@
         margin-bottom: 8px;
     }
 
-    /* FORM FIELDS */
+    
 
     .form-grid {
         display: grid;
@@ -181,7 +182,7 @@
         grid-column: 1 / -1;
     }
 
-    /* BUTTONS */
+    
 
     .form-actions {
         display: flex;
@@ -224,7 +225,7 @@
         background: #e2e8f0;
     }
 
-    /* STATUS MESSAGE */
+    
 
     .message {
         display: none;
@@ -247,7 +248,7 @@
         color: #991b1b;
     }
 
-    /* SEARCH */
+    
 
     .list-heading input {
         width: 250px;
@@ -264,7 +265,7 @@
         border-color: #4f46e5;
     }
 
-    /* STUDENT TABLE */
+    
 
     .table-wrapper {
         width: 100%;
@@ -317,7 +318,7 @@
         background: #fecaca;
     }
 
-    /* RESPONSIVE DESIGN */
+    
 
     @media (max-width: 700px) {
         .students-page {
@@ -554,8 +555,6 @@
     const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
 
     let lastScrollPosition = window.scrollY;
-
-    // Open the sidebar
     function openSidebar() {
         sidebar.classList.add("sidebar-open");
         sidebarOverlay.classList.add("overlay-visible");
@@ -564,8 +563,6 @@
         menuToggle.textContent = "✕";
         document.body.classList.add("menu-open");
     }
-
-    // Close the sidebar
     function closeSidebar() {
         sidebar.classList.remove("sidebar-open");
         sidebarOverlay.classList.remove("overlay-visible");
@@ -574,25 +571,9 @@
         menuToggle.textContent = "☰";
         document.body.classList.remove("menu-open");
     }
-
-    // Toggle the menu when the button is clicked
-    // menuToggle.addEventListener("click", () => {
-    //     if (sidebar.classList.contains("sidebar-open")) {
-    //         closeSidebar();
-    //     } else {
-    //         openSidebar();
-    //     }
-    // });
-
-    // Close the sidebar when the overlay is clicked
-    // sidebarOverlay.addEventListener("click", closeSidebar);
-
-    // Close the sidebar after a navigation link is clicked
     sidebarLinks.forEach(link => {
         link.addEventListener("click", closeSidebar);
     });
-
-    // Hide the header while scrolling down and show it while scrolling up
     window.addEventListener("scroll", () => {
         if (window.innerWidth > 1024) {
             return;
@@ -616,8 +597,6 @@
 
         lastScrollPosition = currentScrollPosition;
     });
-
-    // Close the mobile sidebar when switching to desktop width
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1024) {
             closeSidebar();

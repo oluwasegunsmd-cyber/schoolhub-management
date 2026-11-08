@@ -34,7 +34,7 @@ display: flex;
 min-height: 100vh;
 }
 
-/* SIDEBAR */
+
 
 .sidebar {
 width: 250px;
@@ -116,7 +116,7 @@ transition: 0.2s;
 background: #ffe4e6;
 }
 
-/* MAIN CONTENT */
+
 
 .main-content {
 flex: 1;
@@ -172,7 +172,7 @@ color: var(--text);
 margin-top: 4px;
 }
 
-/* WELCOME BANNER */
+
 
 .welcome-banner {
 background: linear-gradient(115deg, #4f46e5, #7c3aed);
@@ -202,7 +202,7 @@ color: #e0e7ff;
 font-size: 65px;
 }
 
-/* STATISTICS */
+
 
 .section-heading {
 font-size: 18px;
@@ -281,7 +281,7 @@ color: var(--success);
 margin-top: 10px;
 }
 
-/* LOWER DASHBOARD PANELS */
+
 
 .dashboard-grid {
 display: grid;
@@ -360,7 +360,7 @@ margin-left: auto;
 white-space: nowrap;
 }
 
-/* QUICK ACTIONS */
+
 
 .quick-actions {
 display: grid;
@@ -395,7 +395,7 @@ font-weight: 600;
 color: var(--dark);
 }
 
-/* FOOTER */
+
 
 .footer {
 text-align: center;
@@ -405,7 +405,7 @@ margin-top: 35px;
 padding: 15px 0;
 }
 
-/* RESPONSIVE DESIGN */
+
 
 @media (max-width: 1200px) {
 .stats-grid {
@@ -528,7 +528,7 @@ display: block;
     display: none;
 }
 }
-/* MOBILE HEADER */
+
 .mobile-header {
     display: none;
 }
@@ -552,12 +552,12 @@ display: block;
     cursor: pointer;
 }
 
-/* SIDEBAR OVERLAY */
+
 .sidebar-overlay {
     display: none;
 }
 
-/* TABLET AND MOBILE */
+
 @media (max-width: 1024px) {
     .mobile-header {
         display: flex;
@@ -579,7 +579,7 @@ display: block;
         transform: translateY(-100%);
     }
 
-    /* Slide-in sidebar */
+    
     .sidebar {
         display: flex;
         flex-direction: column;
@@ -600,7 +600,7 @@ display: block;
         transform: translateX(0);
     }
 
-    /* Dark background behind sidebar */
+    
     .sidebar-overlay {
         display: block;
         position: fixed;
@@ -628,7 +628,7 @@ display: block;
     }
 }
 
-/* SMALL PHONES */
+
 @media (max-width: 480px) {
     .mobile-logo {
         font-size: 22px;
@@ -636,7 +636,7 @@ display: block;
 }
 
 
-/* FIXED DESKTOP SIDEBAR */
+
 @media (min-width: 1025px) {
     .sidebar {
         position: fixed;

@@ -13,11 +13,6 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
-
-// ========================================
-// HTML ELEMENTS
-// ========================================
-
 const classForm = document.getElementById("classForm");
 const classNameInput = document.getElementById("className");
 const classLevelInput = document.getElementById("classLevel");
@@ -30,17 +25,7 @@ const totalClassesCounter = document.getElementById("totalClasses");
 const totalStudentsCounter = document.getElementById("classPageTotalStudents");
 const totalTeachersCounter = document.getElementById("classPageTotalTeachers");
 
-
-// ========================================
-// VARIABLES
-// ========================================
-
 let classes = [];
-
-
-// ========================================
-// LOAD TEACHERS INTO THE SELECT MENU
-// ========================================
 
 async function loadTeachers() {
     try {
@@ -66,8 +51,6 @@ async function loadTeachers() {
 
             classTeacherInput.appendChild(option);
         });
-
-        // Restore selection if the teacher still exists.
         if (
             currentValue &&
             [...classTeacherInput.options].some(
@@ -81,11 +64,6 @@ async function loadTeachers() {
         console.error("Error loading teachers:", error);
     }
 }
-
-
-// ========================================
-// DISPLAY CLASSES
-// ========================================
 
 function displayClasses(classList = classes) {
     classesTableBody.innerHTML = "";
@@ -136,8 +114,6 @@ function displayClasses(classList = classes) {
             cell.textContent = String(value);
             row.appendChild(cell);
         });
-
-        // Actions cell
         const actionsCell = document.createElement("td");
 
         const viewButton = document.createElement("button");
@@ -165,11 +141,6 @@ function displayClasses(classList = classes) {
     });
 }
 
-
-// ========================================
-// LOAD CLASSES FROM FIRESTORE
-// ========================================
-
 async function loadClassPageCounts() {
     const counters = [
         [totalClassesCounter, "classes"],
@@ -190,23 +161,16 @@ async function loadClassPageCounts() {
 }
 async function loadClasses() {
     try {
-        // Load all classes
         const classesSnapshot = await getDocs(
             collection(db, "classes")
         );
-
-        // Load all students
         const studentsSnapshot = await getDocs(
             collection(db, "students")
         );
-
-        // Convert student documents into an array
         const students = studentsSnapshot.docs.map((document) => ({
             id: document.id,
             ...document.data()
         }));
-
-        // Count students belonging to each class
         classes = classesSnapshot.docs.map((document) => {
             const schoolClass = {
                 id: document.id,
@@ -225,13 +189,9 @@ async function loadClasses() {
                 studentCount
             };
         });
-
-        // Sort classes alphabetically
         classes.sort((a, b) =>
             (a.className || "").localeCompare(b.className || "")
         );
-
-        // Display the updated classes
         applyClassSearch();
         await loadClassPageCounts();
 
@@ -249,40 +209,6 @@ async function loadClasses() {
         `;
     }
 }
-
-// async function loadClasses() {
-//     try {
-//         const snapshot = await getDocs(collection(db, "classes"));
-
-//         classes = snapshot.docs.map((document) => ({
-//             id: document.id,
-//             ...document.data()
-//         }));
-
-//         classes.sort((a, b) =>
-//             (a.className || "").localeCompare(b.className || "")
-//         );
-
-//         applyClassSearch();
-//         await loadClassPageCounts();
-
-//     } catch (error) {
-//         console.error("Error loading classes:", error);
-
-//         classesTableBody.innerHTML = `
-//             <tr>
-//                 <td colspan="7">
-//                     Could not load classes. Check your Firestore rules.
-//                 </td>
-//             </tr>
-//         `;
-//     }
-// }
-
-
-// ========================================
-// SEARCH CLASSES
-// ========================================
 
 function applyClassSearch() {
     const query = classSearch.value.trim().toLowerCase();
@@ -306,11 +232,6 @@ function applyClassSearch() {
 
 classSearch.addEventListener("input", applyClassSearch);
 
-
-// ========================================
-// ADD CLASS
-// ========================================
-
 classForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -327,8 +248,6 @@ classForm.addEventListener("submit", async (event) => {
     const selectedTeacher = classTeacherInput.selectedOptions[0];
 
     const teacherName = selectedTeacher.textContent;
-
-    // Avoid duplicate class names in the same academic session.
     const duplicate = classes.some((schoolClass) =>
         (schoolClass.className || "").toLowerCase() === className.toLowerCase() &&
         schoolClass.academicSession === academicSession
@@ -376,11 +295,6 @@ classForm.addEventListener("submit", async (event) => {
     }
 });
 
-
-// ========================================
-// DELETE CLASS
-// ========================================
-
 async function deleteClass(classId) {
     const confirmation = await Swal.fire({ title: "Delete class?", text: "Are you sure you want to delete this class?", icon: "warning", showCancelButton: true, confirmButtonText: "Delete", cancelButtonText: "Cancel", confirmButtonColor: "#dc2626" });
 
@@ -399,11 +313,6 @@ async function deleteClass(classId) {
         await Swal.fire({ icon: "error", title: "Delete failed", text: "Could not delete class. Check your Firestore rules." });
     }
 }
-
-
-// ========================================
-// AUTHENTICATION
-// ========================================
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) {

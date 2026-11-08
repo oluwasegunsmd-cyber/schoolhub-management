@@ -6,12 +6,8 @@ import {
     deleteDoc,
     doc,
     getDocs,
-    // getFirestore,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
-
-// Reuse the Firebase app already initialized by firebase.js.
-// const db = getFirestore(auth.app);
 
 const studentForm = document.getElementById("studentForm");
 const studentsTableBody = document.getElementById("studentsTableBody");

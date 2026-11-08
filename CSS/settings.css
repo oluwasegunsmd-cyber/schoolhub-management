@@ -1,4 +1,4 @@
-/* GENERAL RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
 }
 
-/* SIDEBAR */
+
 .sidebar {
     width: 250px;
     background: #172554;
@@ -80,7 +80,7 @@ body {
     padding-top: 30px;
 }
 
-/* MAIN CONTENT */
+
 .main-content {
     flex: 1;
     min-width: 0;
@@ -134,7 +134,7 @@ body {
     color: #64748b;
 }
 
-/* SETTINGS INTRO */
+
 .settings-intro {
     background: linear-gradient(135deg, #1d4ed8, #3b82f6);
     color: white;
@@ -162,7 +162,7 @@ body {
     font-size: 42px;
 }
 
-/* SETTINGS CARDS */
+
 .settings-card {
     background: white;
     border: 1px solid #e2e8f0;
@@ -204,7 +204,7 @@ body {
     line-height: 1.5;
 }
 
-/* FORMS */
+
 .settings-form {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -270,7 +270,7 @@ body {
     background: #dbeafe;
 }
 
-/* SECURITY */
+
 .security-option,
 .notification-option,
 .appearance-option {
@@ -311,7 +311,7 @@ body {
     white-space: nowrap;
 }
 
-/* NOTIFICATION TOGGLES */
+
 .toggle {
     position: relative;
     display: inline-block;
@@ -355,7 +355,7 @@ body {
     transform: translateX(21px);
 }
 
-/* APPEARANCE */
+
 .appearance-option {
     border-bottom: none;
     padding-bottom: 0;
@@ -370,7 +370,7 @@ body {
     outline: none;
 }
 
-/* FOOTER */
+
 .page-footer {
     text-align: center;
     padding: 20px 0 5px;
@@ -378,7 +378,7 @@ body {
     font-size: 12px;
 }
 
-/* RESPONSIVE DESIGN */
+
 @media (max-width: 1000px) {
     .sidebar {
         width: 220px;
@@ -467,7 +467,7 @@ body {
         white-space: normal;
     }
 }
-/* MOBILE HEADER */
+
 .mobile-header {
     display: none;
 }
@@ -493,18 +493,18 @@ body {
 .sidebar2{
     display: none;
 }
-/* SIDEBAR OVERLAY */
+
 .sidebar-overlay {
     display: none;
 }
 
-/* TABLET AND MOBILE */
+
 @media (max-width: 1024px) {
     .mobile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* gap: 12px; */
+        
         position: fixed;
         top: 0;
         left: 0;
@@ -524,7 +524,7 @@ body {
         transform: translateY(-100%);
     }
 
-    /* Slide-in sidebar */
+    
     .sidebar{
         display: flex;
         flex-direction: column;
@@ -566,7 +566,7 @@ body {
         text-align: center;
     }
 
-    /* Dark background behind sidebar */
+    
     .sidebar-overlay {
         display: block;
         position: fixed;
@@ -594,13 +594,13 @@ body {
     }
 }
 
-/* SMALL PHONES */
+
 @media (max-width: 480px) {
     .mobile-logo {
         font-size: 22px;
     }
 }
-/* MOBILE SIDEBAR FIX */
+
 @media (max-width: 1024px) {
     .sidebar2 {
         display: flex !important;
@@ -667,7 +667,7 @@ body {
     }
 }
 
-/* FIXED DESKTOP SIDEBAR */
+
 @media (min-width: 1025px) {
     .sidebar {
         position: fixed;
@@ -683,7 +683,7 @@ body {
     }
 }
 
-/* SETTINGS DARK THEME */
+
 body.dark-mode {
     background: #0f172a;
     color: #e2e8f0;

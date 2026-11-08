@@ -115,12 +115,6 @@ function displayTeachers(teacherList = teachers) {
         actionCell.appendChild(deleteButton);
         row.appendChild(actionCell);
         teachersTableBody.appendChild(row);
-
-        // <button
-        //     type="button"
-        //     class="action-btn delete-btn">
-        //     Delete
-        // </button>
     }
 }
 

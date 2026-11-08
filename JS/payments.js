@@ -21,11 +21,6 @@ const paymentSummary = document.getElementById("paymentSummary");
 const paymentDateInput = document.getElementById("paymentDate");
 const paymentsCollection = collection(db, "payments");
 
-
-// ==========================================
-// LOAD REGISTERED STUDENTS
-// ==========================================
-
 const studentsCollection = collection(db, "students");
 
 async function loadStudents() {

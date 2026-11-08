@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="CSS/theme.css">
     <script src="JS/theme.js"></script>
 </head>
+<link rel="icon" href="image/ChatGPT Image Nov 7, 2026, 07_47_40 AM.png">
 <body>
      <div class="dashboard-container">
-        <!-- MOBILE HEADER -->
+        
         <div class="mobile-header">
             <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 ☰
@@ -19,10 +20,10 @@
             <h2 class="mobile-logo">School<span>Hub</span></h2>
         </div>
 
-<!-- SIDEBAR OVERLAY -->
+
     <div class="sidebar-overlay"></div>
 
-<!-- SIDEBAR -->
+
  
         <aside class="sidebar2">
             <div class="sidebar-header">
@@ -75,7 +76,7 @@
             </div>
         </aside>
 
-        <!-- SIDEBAR -->
+        
 <aside class="sidebar">
     
 
@@ -132,10 +133,10 @@
 
 </aside>
 
-        <!-- MAIN CONTENT -->
+        
         <main class="main-content">
 
-            <!-- PAGE HEADER -->
+            
             <header class="page-header">
 
                 <div>
@@ -153,7 +154,7 @@
 
             </header>
 
-            <!-- ATTENDANCE STATISTICS -->
+            
             <section class="stats-container">
 
                 <div class="stat-card">
@@ -202,7 +203,7 @@
 
             </section>
 
-            <!-- MARK ATTENDANCE FORM -->
+            
             <section class="form-section">
 
                 <div class="section-header">
@@ -219,7 +220,7 @@
 
                     <div class="form-grid">
 
-                        <!-- STUDENT NAME -->
+                        
                         <div class="form-group">
 
                             <label for="studentName">
@@ -236,7 +237,7 @@
 
                         </div>
 
-                        <!-- CLASS -->
+                        
                         <div class="form-group">
 
                             <label for="studentClass">
@@ -280,7 +281,7 @@
 
                         </div>
 
-                        <!-- DATE -->
+                        
                         <div class="form-group">
 
                             <label for="attendanceDate">
@@ -296,7 +297,7 @@
 
                         </div>
 
-                        <!-- STATUS -->
+                        
                         <div class="form-group">
 
                             <label for="attendanceStatus">
@@ -331,7 +332,7 @@
 
                     </div>
 
-                    <!-- FORM BUTTONS -->
+                    
                     <div class="form-actions">
 
                         <button
@@ -354,7 +355,7 @@
 
             </section>
 
-            <!-- ATTENDANCE RECORDS -->
+            
             <section class="table-section">
 
                 <div class="section-header">
@@ -367,7 +368,7 @@
 
                 </div>
 
-                <!-- SEARCH AND FILTERS -->
+                
                 <div class="table-toolbar">
 
                     <input
@@ -406,7 +407,7 @@
 
                 </div>
 
-                <!-- ATTENDANCE TABLE -->
+                
                 <div class="table-responsive">
 
                     <table>
@@ -433,7 +434,7 @@
 
             </section>
 
-            <!-- FOOTER -->
+            
             <footer class="page-footer">
 
                 <p>
@@ -453,8 +454,6 @@
     const sidebarLinks = document.querySelectorAll(".sidebar-nav .nav-link");
 
     let lastScrollPosition = window.scrollY;
-
-    // Open the sidebar
     function openSidebar() {
         sidebar.classList.add("sidebar-open");
         sidebarOverlay.classList.add("overlay-visible");
@@ -463,8 +462,6 @@
         menuToggle.textContent = "✕";
         document.body.classList.add("menu-open");
     }
-
-    // Close the sidebar
     function closeSidebar() {
         sidebar.classList.remove("sidebar-open");
         sidebarOverlay.classList.remove("overlay-visible");
@@ -473,8 +470,6 @@
         menuToggle.textContent = "☰";
         document.body.classList.remove("menu-open");
     }
-
-    // Toggle the menu when the button is clicked
     menuToggle.addEventListener("click", () => {
         if (sidebar.classList.contains("sidebar-open")) {
             closeSidebar();
@@ -482,16 +477,10 @@
             openSidebar();
         }
     });
-
-    // Close the sidebar when the overlay is clicked
     sidebarOverlay.addEventListener("click", closeSidebar);
-
-    // Close the sidebar after a navigation link is clicked
     sidebarLinks.forEach(link => {
         link.addEventListener("click", closeSidebar);
     });
-
-    // Hide the header while scrolling down and show it while scrolling up
     window.addEventListener("scroll", () => {
         if (window.innerWidth > 1024) {
             return;
@@ -515,8 +504,6 @@
 
         lastScrollPosition = currentScrollPosition;
     });
-
-    // Close the mobile sidebar when switching to desktop width
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1024) {
             closeSidebar();

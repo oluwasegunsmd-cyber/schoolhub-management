@@ -1,6 +1,4 @@
-/* ========================================
-   GLOBAL STYLES
-======================================== */
+
 
 * {
     margin: 0;
@@ -25,18 +23,14 @@ button {
     cursor: pointer;
 }
 
-/* ========================================
-   DASHBOARD LAYOUT
-======================================== */
+
 
 .dashboard-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* ========================================
-   SIDEBAR
-======================================== */
+
 
 .sidebar {
     width: 260px;
@@ -55,7 +49,7 @@ button {
     padding: 25px 15px;
 }
 
-/* Sidebar Header */
+
 
 .sidebar-header {
     padding: 0 10px 25px;
@@ -80,7 +74,7 @@ button {
     line-height: 1.5;
 }
 
-/* Navigation Container */
+
 
 .sidebar-nav {
     display: flex;
@@ -90,7 +84,7 @@ button {
     flex: 1;
 }
 
-/* Navigation Links */
+
 
 .nav-link {
     display: flex;
@@ -110,7 +104,7 @@ button {
         color 0.2s ease;
 }
 
-/* Navigation Icons */
+
 
 .nav-link .nav-icon {
     display: inline-flex;
@@ -123,21 +117,21 @@ button {
     font-size: 18px;
 }
 
-/* Hover Effect */
+
 
 .nav-link:hover {
     background-color: #334155;
     color: #ffffff;
 }
 
-/* Active Navigation Link */
+
 
 .nav-link.active {
     background-color: #4f46e5;
     color: #ffffff;
 }
 
-/* Sidebar Footer */
+
 
 .sidebar-footer {
     margin-top: 25px;
@@ -146,9 +140,7 @@ button {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ========================================
-   RESPONSIVE SIDEBAR
-======================================== */
+
 
 @media (max-width: 768px) {
 
@@ -192,9 +184,7 @@ button {
         padding-top: 10px;
     }
 }
-/* ========================================
-   MAIN CONTENT
-======================================== */
+
 
 .main-content {
     flex: 1;
@@ -203,9 +193,7 @@ button {
     overflow-x: hidden;
 }
 
-/* ========================================
-   PAGE HEADER
-======================================== */
+
 
 .page-header {
     display: flex;
@@ -226,9 +214,7 @@ button {
     font-size: 14px;
 }
 
-/* ========================================
-   BUTTONS
-======================================== */
+
 
 .btn {
     display: inline-flex;
@@ -284,9 +270,7 @@ button {
     background-color: #fecaca;
 }
 
-/* ========================================
-   ATTENDANCE STATISTICS
-======================================== */
+
 
 .stats-container {
     display: grid;
@@ -351,9 +335,7 @@ button {
     font-weight: 700;
 }
 
-/* ========================================
-   FORM SECTION
-======================================== */
+
 
 .form-section,
 .table-section {
@@ -380,9 +362,7 @@ button {
     font-size: 14px;
 }
 
-/* ========================================
-   FORM GRID
-======================================== */
+
 
 .form-grid {
     display: grid;
@@ -424,9 +404,7 @@ button {
     color: #94a3b8;
 }
 
-/* ========================================
-   FORM ACTIONS
-======================================== */
+
 
 .form-actions {
     display: flex;
@@ -437,9 +415,7 @@ button {
     border-top: 1px solid #e5e7eb;
 }
 
-/* ========================================
-   SEARCH AND FILTER TOOLBAR
-======================================== */
+
 
 .table-toolbar {
     display: flex;
@@ -473,9 +449,7 @@ button {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* ========================================
-   ATTENDANCE TABLE
-======================================== */
+
 
 .table-responsive {
     width: 100%;
@@ -522,9 +496,7 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* ========================================
-   ATTENDANCE STATUS BADGES
-======================================== */
+
 
 .status-badge {
     display: inline-block;
@@ -549,9 +521,7 @@ tbody tr:last-child td {
     color: #b45309;
 }
 
-/* ========================================
-   PAGE FOOTER
-======================================== */
+
 
 .page-footer {
     text-align: center;
@@ -560,9 +530,7 @@ tbody tr:last-child td {
     font-size: 13px;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
+
 
 @media (max-width: 1200px) {
     .stats-container {
@@ -695,7 +663,7 @@ tbody tr:last-child td {
         width: 100%;
     }
 }
-/* MOBILE HEADER */
+
 .mobile-header {
     display: none;
 }
@@ -721,18 +689,18 @@ tbody tr:last-child td {
 .sidebar2{
     display: none;
 }
-/* SIDEBAR OVERLAY */
+
 .sidebar-overlay {
     display: none;
 }
 
-/* TABLET AND MOBILE */
+
 @media (max-width: 1024px) {
     .mobile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* gap: 12px; */
+        
         position: fixed;
         top: 0;
         left: 0;
@@ -752,7 +720,7 @@ tbody tr:last-child td {
         transform: translateY(-100%);
     }
 
-    /* Slide-in sidebar */
+    
     .sidebar{
         display: flex;
         flex-direction: column;
@@ -794,7 +762,7 @@ tbody tr:last-child td {
         text-align: center;
     }
 
-    /* Dark background behind sidebar */
+    
     .sidebar-overlay {
         display: block;
         position: fixed;
@@ -822,13 +790,13 @@ tbody tr:last-child td {
     }
 }
 
-/* SMALL PHONES */
+
 @media (max-width: 480px) {
     .mobile-logo {
         font-size: 22px;
     }
 }
-/* MOBILE SIDEBAR FIX */
+
 @media (max-width: 1024px) {
     .sidebar2 {
         display: flex !important;
@@ -893,7 +861,7 @@ tbody tr:last-child td {
     }
 }
 
-/* FIXED DESKTOP SIDEBAR */
+
 @media (min-width: 1025px) {
     .sidebar {
         position: fixed;

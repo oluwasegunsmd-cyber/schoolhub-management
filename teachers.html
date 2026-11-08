@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="CSS/theme.css">
     <script src="JS/theme.js"></script>
 </head>
-    
+    <link rel="icon" href="image/ChatGPT Image Nov 7, 2026, 07_47_40 AM.png">
 <body>
     <div class="dashboard-container">
-        <!-- MOBILE HEADER -->
+        
         <div class="mobile-header">
             <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 ☰
@@ -22,10 +22,10 @@
             <h2 class="mobile-logo">School<span>Hub</span></h2>
         </div>
 
-<!-- SIDEBAR OVERLAY -->
+
     <div class="sidebar-overlay"></div>
 
-<!-- SIDEBAR -->
+
  
         <aside class="sidebar2">
             <div class="sidebar-header">
@@ -78,7 +78,7 @@
             </div>
         </aside>
 
-        <!-- SIDEBAR -->
+        
         <aside class="sidebar">
 
             <div class="sidebar-header">
@@ -135,10 +135,10 @@
         </aside>
 
 
-        <!-- MAIN CONTENT -->
+        
         <main class="main-content">
 
-            <!-- PAGE HEADER -->
+            
             <header class="page-header">
 
                 <div>
@@ -157,7 +157,7 @@
             </header>
 
 
-            <!-- TEACHER STATISTICS -->
+            
             <section class="teacher-stats">
 
                 <div class="stat-card">
@@ -190,7 +190,7 @@
             </section>
 
 
-            <!-- ADD TEACHER FORM -->
+            
             <section class="teacher-form-section" id="teacherFormSection">
 
                 <div class="section-header">
@@ -314,7 +314,7 @@
             </section>
 
 
-            <!-- TEACHERS LIST -->
+            
             <section class="teachers-list-section">
 
                 <div class="section-header">
@@ -327,7 +327,7 @@
                 </div>
 
 
-                <!-- SEARCH -->
+                
                 <div class="teacher-toolbar">
 
                     <input
@@ -340,7 +340,7 @@
                 </div>
 
 
-                <!-- TEACHERS TABLE -->
+                
                 <div class="table-container">
 
                     <table class="teachers-table">
@@ -360,7 +360,7 @@
 
                         <tbody id="teachersTableBody">
 
-                            <!-- Sample teacher records -->
+                            
 
                             <tr>
                                 <td>
@@ -394,69 +394,7 @@
                                 </td>
                             </tr>
 
-                            <!-- <tr>
-                                <td>
-                                    <div class="teacher-profile">
-                                        <div class="teacher-avatar">MA</div>
-                                        <span>Mary Adams</span>
-                                    </div>
-                                </td>
-
-                                <td>mary@example.com</td>
-                                <td>08023456789</td>
-                                <td>Female</td>
-                                <td>English Language</td>
-
-                                <td>
-                                    <div class="action-buttons">
-                                        <button
-                                            type="button"
-                                            class="action-btn edit-btn"
-                                        >
-                                            Edit
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            class="action-btn delete-btn"
-                                        >
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="teacher-profile">
-                                        <div class="teacher-avatar">PS</div>
-                                        <span>Peter Smith</span>
-                                    </div>
-                                </td>
-
-                                <td>peter@example.com</td>
-                                <td>08034567890</td>
-                                <td>Male</td>
-                                <td>Physics</td>
-
-                                <td>
-                                    <div class="action-buttons">
-                                        <button
-                                            type="button"
-                                            class="action-btn edit-btn"
-                                        >
-                                            Edit
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            class="action-btn delete-btn"
-                                        >
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr> -->
+                            
 
                         </tbody>
 
@@ -465,7 +403,7 @@
                 </div>
 
 
-                <!-- TABLE FOOTER -->
+                
                 <div class="table-footer">
                     <p>...Showing active teachers</p>
                 </div>
@@ -473,7 +411,7 @@
             </section>
 
 
-            <!-- FOOTER -->
+            
             <footer class="page-footer">
                 <p>&copy; 2026 SchoolHub. All rights reserved.</p>
             </footer>
@@ -490,7 +428,7 @@
 
     let lastScrollPosition = window.scrollY;
 
-    // Open the sidebar
+   
     function openSidebar() {
         sidebar.classList.add("sidebar-open");
         sidebarOverlay.classList.add("overlay-visible");
@@ -500,7 +438,7 @@
         document.body.classList.add("menu-open");
     }
 
-    // Close the sidebar
+    
     function closeSidebar() {
         sidebar.classList.remove("sidebar-open");
         sidebarOverlay.classList.remove("overlay-visible");
@@ -510,7 +448,7 @@
         document.body.classList.remove("menu-open");
     }
 
-    // Toggle the menu when the button is clicked
+    
     menuToggle.addEventListener("click", () => {
         if (sidebar.classList.contains("sidebar-open")) {
             closeSidebar();
@@ -519,15 +457,15 @@
         }
     });
 
-    // Close the sidebar when the overlay is clicked
+    
     sidebarOverlay.addEventListener("click", closeSidebar);
 
-    // Close the sidebar after a navigation link is clicked
+   
     sidebarLinks.forEach(link => {
         link.addEventListener("click", closeSidebar);
     });
 
-    // Hide the header while scrolling down and show it while scrolling up
+    
     window.addEventListener("scroll", () => {
         if (window.innerWidth > 1024) {
             return;
@@ -552,7 +490,7 @@
         lastScrollPosition = currentScrollPosition;
     });
 
-    // Close the mobile sidebar when switching to desktop width
+    
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1024) {
             closeSidebar();
